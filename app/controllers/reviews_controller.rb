@@ -1,0 +1,57 @@
+class ReviewsController < ApplicationController 
+  before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy]
+
+  def index
+    @reviews = Review.all
+  end
+
+  def new
+    @review = Review.new()
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def create
+    @review = Review.create(event_params)
+    if @review.save
+      flash[:success] = "Review created!"
+      redirect_to reviews_path
+    else
+      flash[:alert] = "There was an error; review was not created."
+      redirect_to new_review_path
+    end
+  end
+
+  def update 
+    @review = Review.find(params[:id])
+
+    if @review.update_attributes(params[:review])
+      flash[:success] = "Changes saved!"
+      redirect_to reviews_path
+    else
+      flash[:alert] = "Changes weren't saved."
+      redirect_to edit_review_path(review)
+    end
+  end
+
+  def destroy
+    Review.find(params[:id]).destroy
+    flash[:success] = "Review deleted."
+    redirect_to reviews_path
+  end
+
+  private
+
+  def event_params
+    params.require(:review).permit(:name, :date, :summary, :event)
+  end
+
+  def check_admin
+    unless user_signed_in?
+      redirect_to root_path
+    end  
+  end
+
+end

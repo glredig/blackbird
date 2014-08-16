@@ -48,4 +48,18 @@ describe EventsController, type: :controller do
       }.to change(Event, :count).by(1)
     end
   end
+
+  describe "#destroy" do
+    let!(:user) { FactoryGirl.create(:user) }
+    before do
+      @event = Event.create!(summary: "Lorem ipsum", location: "123 Awesome way", accessible: 1, date: Date.today, pay: 300000)
+      sign_in user
+    end
+
+    it "deletes the event" do
+      expect {
+        delete :destroy, id: @event.id
+      }.to change(Event, :count).by(-1)
+    end
+  end
 end
