@@ -4,13 +4,35 @@
   <title>Blackbird</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300italic,300' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: "layouts/user_widget" %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <section id="header">
+    <%= link_to "Blackbird", root_path, class: "pos_fl" %>
+    <ul id="nav_list">
+      <li>samples</li>
+      <li>bios</li>
+      <li><%= link_to "songlist", songs_path %></li>
+      <li>gallery</li>
+      <li>reviews</li>
+      <li>contact us</li>
+    </ul>
+  </section>
+  <div class="clear"></div>
+  <section id="content">
+    <%= yield %>
+  </section>
+
+  <section id="footer">
+    <div class="col left">
+    </div>
+    <div class="col middle">
+      <%= render partial: "layouts/user_widget" %>
+    </div>
+  </section>
 
 </body>
 </html>

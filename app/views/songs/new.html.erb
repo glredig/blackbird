@@ -1,0 +1,7 @@
+<h1>Add a song</h1>
+
+<%= simple_form_for @song do |form| %>
+  <%= form.input :title %>
+  <%= form.input :artist %>
+  <%= form.button :submit %>
+<% end %>

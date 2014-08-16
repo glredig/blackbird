@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 event1 = Event.create!(summary: "This is a test event", accessible: 0, location: "123 SW 18th Street, Awesome, CA", date: Time.now(), pay: 120000)
+
+admin_user = User.create!(email: "admin@example.com", password: "password", admin: true)

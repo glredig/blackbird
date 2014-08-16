@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new(event_params)
+    @event = Event.new()
   end
 
   def edit
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
 
   def check_admin
     unless user_signed_in?
-      redirect_to root
+      redirect_to root_path
     end  
   end
 

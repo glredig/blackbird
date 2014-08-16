@@ -1,3 +1,25 @@
 * {
-  font-family: arial, helvetica, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  background-color: #181816;
+  color: #888;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.pos_fl {
+  float: left;
+}
+
+.pos_fr {
+  float: right;
 }

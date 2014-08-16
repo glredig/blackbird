@@ -8,7 +8,7 @@ describe HomeController, type: :controller do
     end
 
     it "sets the variables" do
-      assigns[:events].should == Event.all
+      expect( assigns[:events] ).to eq(Event.all)
     end
   end
 end

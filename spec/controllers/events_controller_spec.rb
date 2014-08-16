@@ -8,7 +8,7 @@ describe EventsController, type: :controller do
     end
 
     it "sets the variables" do
-      assigns[:events].should == Event.all
+      expect( assigns[:events] ).to eq(Event.all)
     end
   end
 
@@ -19,7 +19,7 @@ describe EventsController, type: :controller do
 
     it "sets the event variable" do
       get :show, id: @event.id
-      assigns[:event].should == @event
+      expect( assigns[:event] ).to eq(@event)
     end
   end
 
@@ -30,21 +30,22 @@ describe EventsController, type: :controller do
     end
 
     it "sets the event variable" do
-      login_admin(user)
+      sign_in user
       get :edit, id: @event.id
-      assigns[:event].should == @event
+      expect( assigns[:event] ).to eq(@event)
     end
   end
 
   describe "#create" do
     let!(:user) { FactoryGirl.create(:user) }
     before do
-      login_admin(user)
-      post :create, summary: "Lorem ipsum", location: "123 Awesome way", accessible: 1, date: Date.today, pay: 300000 
+      sign_in user
     end
 
     it "creates the event" do
-      it { expect(Event.count).to eq(1) }
+      expect {
+        post :create, event: { summary: "Lorem ipsum", location: "123 Awesome way", accessible: 1, date: Date.today, pay: 300000 }
+      }.to change(Event, :count).by(1)
     end
   end
 end

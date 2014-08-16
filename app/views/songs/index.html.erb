@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= link_to "Add a song", new_song_path %>
+<% end %>
+
+<% @songs.each do |song| %>
+  <%= song.title %> - <%= song.artist %>
+<% end %>
