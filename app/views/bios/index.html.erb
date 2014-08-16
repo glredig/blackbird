@@ -1,0 +1,12 @@
+<h1>Bios</h2>
+
+<% if user_signed_in? %>
+  <%= link_to "New Bio", new_bio_path %>
+<% end %>
+
+<% @bios.each do |bio| %>
+  <%= bio.name %> (<%= bio.instruments %>)<br>
+  <p>
+    <%= bio.summary %>
+  </p>
+<% end %>

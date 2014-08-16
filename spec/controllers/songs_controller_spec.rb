@@ -32,7 +32,20 @@ describe SongsController, type: :controller do
         post :create, song: { title: "Lorem ipsum", artist: "Blackbird" }
       }.to change(Song, :count).by(1)
     end
+  end
 
+  describe "#destroy" do
+    let!(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      sign_in user
+      @song = Song.create!(title: "Hey Jude", artist: "The Beatles")
+    end
+
+    it "deletes the song" do
+      expect{ 
+        delete :destroy, id: @song.id
+      }.to change(Song, :count).by(-1)
+    end
   end
 
   describe "#edit" do

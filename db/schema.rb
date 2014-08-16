@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816031609) do
+ActiveRecord::Schema.define(version: 20140816080510) do
+
+  create_table "bios", force: true do |t|
+    t.string   "name"
+    t.string   "instruments"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.text     "summary"
@@ -24,8 +32,10 @@ ActiveRecord::Schema.define(version: 20140816031609) do
   end
 
   create_table "songs", force: true do |t|
-    t.string "title"
-    t.string "artist"
+    t.string   "title"
+    t.string   "artist"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

@@ -1,0 +1,7 @@
+<h1>Edit bio</h1>
+
+<%= simple_form_for @bio do |form| %>
+  <%= form.input :name %>
+  <%= form.input :instruments %>
+  <%= form.input :summary, as: :text %>
+<% end %>

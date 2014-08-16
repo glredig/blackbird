@@ -25,6 +25,18 @@ class SongsController < ApplicationController
     end
   end
 
+  def destroy
+    @song = Song.find(params[:id])
+
+    if @song.destroy
+      flash[:success]  = "Song deleted."
+      redirect_to songs_path
+    else 
+      flash[:alert] = "Error in deleting song."
+      redirect_to edit_song_path(@song)
+    end
+  end
+
   private
   
   def song_params
