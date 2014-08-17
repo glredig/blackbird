@@ -25,6 +25,19 @@ describe BiosController do
     end
   end
 
+  describe "#create" do
+    let!(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      sign_in user
+    end
+
+    it "creates a new bio" do
+      expect{ 
+        post :create, bio: { name: "John Doe", instruments: "Keys/Cats", summary: "He plays what?" }
+      }.to change(Bio, :count).by(1)
+    end
+  end
+
   describe "#edit" do
     let!(:user) { FactoryGirl.create(:user) }
     before(:each) do
@@ -39,17 +52,18 @@ describe BiosController do
     end
   end
 
-  describe "#create" do
+  describe "#update" do
     let!(:user) { FactoryGirl.create(:user) }
     before(:each) do
+      @bio = Bio.create!(name: "Guy Mannington", instruments: "Slide whistle", summary: "He's neato")
       sign_in user
     end
 
-    it "creates a new bio" do
-      expect{ 
-        post :create, bio: { name: "John Doe", instruments: "Keys/Cats", summary: "He plays what?" }
-      }.to change(Bio, :count).by(1)
-    end
+    it "updates the bio" do
+      patch :update, id: @bio.id, bio: { name: "John Dizzy", instruments: "Keys/Cats", summary: "He plays what?" }
+      @bio.reload
+      expect( @bio.name ).to eq("John Dizzy")
+    end  
   end
 
   describe "#destroy" do
@@ -65,4 +79,6 @@ describe BiosController do
       }.to change(Bio, :count).by(-1)
     end
   end
+
+  
 end

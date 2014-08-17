@@ -5,7 +5,12 @@
 <% end %>
 
 <% @bios.each do |bio| %>
-  <%= bio.name %> (<%= bio.instruments %>)<br>
+  <%= bio.name %> (<%= bio.instruments %>) 
+  <% if user_signed_in? %>
+    <%= link_to "Edit", edit_bio_path(bio) %>
+  <% end %>
+
+  <br>
   <p>
     <%= bio.summary %>
   </p>

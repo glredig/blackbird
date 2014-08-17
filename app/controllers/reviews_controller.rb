@@ -9,12 +9,8 @@ class ReviewsController < ApplicationController
     @review = Review.new()
   end
 
-  def edit
-    @review = Review.find(params[:id])
-  end
-
   def create
-    @review = Review.create(event_params)
+    @review = Review.create(review_params)
     if @review.save
       flash[:success] = "Review created!"
       redirect_to reviews_path
@@ -24,15 +20,20 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
   def update 
     @review = Review.find(params[:id])
-
-    if @review.update_attributes(params[:review])
+    @review.update_attributes(review_params)
+    
+    if @review.save
       flash[:success] = "Changes saved!"
       redirect_to reviews_path
     else
       flash[:alert] = "Changes weren't saved."
-      redirect_to edit_review_path(review)
+      redirect_to edit_review_path(@review)
     end
   end
 
@@ -44,7 +45,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def event_params
+  def review_params
     params.require(:review).permit(:name, :date, :summary, :event)
   end
 

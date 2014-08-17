@@ -1,4 +1,4 @@
-<div>
+<div class="two_thirds">
 <p>
   Blackbird is a talented band made up of four musicians that are local to the area west of Portland, Oregon (Beaverton/Hillsboro) in the beautiful Northwest.
 </p>
@@ -19,7 +19,7 @@ Blackbird is defined by a strong rhythm section driving the band and impressive 
 Blackbird has played a variety of events, and is prepared to accomodate a variety of special circumstances. They have played:
 </p>
 
-<ul>
+<ul class="bulleted">
   <li>Weddings</li>
   <li>Corporate Parties</li>
   <li>Birthday Parties</li>
@@ -35,3 +35,19 @@ If Blackbird sounds like a good fit for your event, we encourage you to look aro
 
 To send the band a comment or question, please visit the contact us page.
 </div>
+<div class="one_third">
+  <h2>Events</h2>
+  <% @events.each do |event| %>
+    <%= event.summary %><br>
+  <% end %>
+  <%= link_to "View All", events_path %>
+</div>
+
+<div class="one_third">
+  <h2>Reviews</h2>
+  <% @reviews.each do |review| %>
+    <%= review.summary %><br>
+  <% end %>
+  <%= link_to "View All", reviews_path %>
+</div>
+<div class="clear"></div>

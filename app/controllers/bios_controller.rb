@@ -25,6 +25,19 @@ class BiosController < ApplicationController
     @bio = Bio.find(params[:id])
   end
 
+  def update
+    @bio = Bio.find(params[:id])
+    @bio.update_attributes(bio_params)
+
+    if @bio.save
+      flash[:success] = "Bio updated."
+      redirect_to bios_path
+    else
+      flash[:alert] = "Error in updating bio."
+      redirect_to edit_bio_path(@bio)
+    end
+  end
+
   def destroy
     @bio = Bio.find(params[:id])
 

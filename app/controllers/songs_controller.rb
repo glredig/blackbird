@@ -5,10 +5,6 @@ class SongsController < ApplicationController
     @songs = Song.all
   end
 
-  def edit
-    @song = Song.find(params[:id])
-  end
-
   def new
     @song = Song.new()
   end
@@ -22,6 +18,23 @@ class SongsController < ApplicationController
     else
       flash[:alert] = "Error in the save process."
       redirect_to new_song_path
+    end
+  end
+
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  def update 
+    @song = Song.find(params[:id])
+    @song.update_attributes(song_params)
+    
+    if @song.save
+      flash[:success] = "Changes saved!"
+      redirect_to songs_path
+    else
+      flash[:alert] = "Changes weren't saved."
+      redirect_to edit_song_path(@song)
     end
   end
 

@@ -1,7 +1,25 @@
-<% if user_signed_in? %>
-  <%= link_to "Add a song", new_song_path %>
-<% end %>
+<div class="pushed_content translucent">
+  <h1>song list</h2>
+  <% if user_signed_in? %>
+    <%= link_to "Add new song", new_song_path, class: "pseudo_button" %>
+  <% end %>
 
-<% @songs.each do |song| %>
-  <%= song.title %> - <%= song.artist %>
-<% end %>
+  <p>
+    Below is a list of songs that Blackbird has performed at previous events.
+  </p>
+
+  <ul class="blocked">
+    <% @songs.each do |song| %>
+      <li>
+        <% if user_signed_in? %>
+          <div class="pos_fr">
+            <%= link_to edit_song_path(song) do %>
+              <%= icon('edit', '', class: "pos_fr strong") %>
+            <% end %>
+          </div>
+        <% end %>
+        <%= song.title %> - <%= song.artist %>
+      </li>
+    <% end %>
+  </ul>
+</div>

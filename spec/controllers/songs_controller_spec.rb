@@ -34,6 +34,33 @@ describe SongsController, type: :controller do
     end
   end
 
+  describe "#edit" do
+    before(:each) do
+      user = FactoryGirl.create(:user)
+      sign_in user
+      @song = Song.create!(title: "Lorem Ipsum", artist: "Blackbird")
+      get :edit, id: @song.id
+    end
+
+    it "sets the variables" do
+      expect( assigns[:song]).to eq(@song)
+    end
+  end
+
+  describe "#update" do
+    let!(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      @song = Song.create!(title: "Lorem Ipsum", artist: "Blackbird")
+      sign_in user
+    end
+
+    it "updates the song" do
+      patch :update, id: @song.id, song: { title: "Yay!", artist: "Blackbird" }
+      @song.reload
+      expect( @song.title ).to eq("Yay!")
+    end  
+  end
+
   describe "#destroy" do
     let!(:user) { FactoryGirl.create(:user) }
     before(:each) do
@@ -48,16 +75,5 @@ describe SongsController, type: :controller do
     end
   end
 
-  describe "#edit" do
-    before(:each) do
-      user = FactoryGirl.create(:user)
-      sign_in user
-      @song = Song.create!(title: "Lorem Ipsum", artist: "Blackbird")
-      get :edit, id: @song.id
-    end
-
-    it "sets the variables" do
-      expect( assigns[:song]).to eq(@song)
-    end
-  end
+  
 end 

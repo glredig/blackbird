@@ -8,29 +8,55 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <section id="header">
-    <%= link_to "Blackbird", root_path, class: "pos_fl" %>
-    <ul id="nav_list">
-      <li>samples</li>
-      <li><%= link_to "bios", bios_path %></li>
-      <li><%= link_to "songlist", songs_path %></li>
-      <li>gallery</li>
-      <li>reviews</li>
-      <li>contact us</li>
-    </ul>
-  </section>
-  <div class="clear"></div>
-  <section id="content">
-    <%= yield %>
-  </section>
+    <section id="header">
+      <div class="centered_content">
+        <%= link_to root_path, id: "home_logo_link" do %>
+          <%= image_tag 'blackbird_logo_grunge.png' %>
+        <% end %>
 
+        <ul id="nav_list">
+          <li>samples</li>
+          <li><%= link_to "bios", bios_path %></li>
+          <li><%= link_to "songlist", songs_path %></li>
+          <li>gallery</li>
+          <li><%= link_to "reviews", reviews_path %></li>
+          <li>contact us</li>
+        </ul>
+      </div>
+    </section>
+    <div class="clear"></div>
+    <section id="content">
+      <div class="centered_content">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </section>
   <section id="footer">
-    <div class="col left">
-    </div>
-    <div class="col middle">
-      <%= render partial: "layouts/user_widget" %>
+    <div class="centered_content">
+      <div class="pos_fl">
+        <%= render partial: "layouts/user_widget" %>
+      </div>
+      <div class="pos_fr">
+        <ul class="inline">
+          <li>
+            <%= link_to "http://www.facebook.com/BlackbirdOregon" do %>
+              <%= icon('facebook') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "http://www.youtube.com/BlackbirdOregon" do %>
+              <%= icon('youtube') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "http://www.twitter.com/BlackbirdOregon" do %>
+              <%= icon('twitter') %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="clear"></div>
     </div>
   </section>
 

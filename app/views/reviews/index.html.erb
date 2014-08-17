@@ -1,9 +1,26 @@
-<h1>Reviews</h2>
+<div class="pushed_content translucent">
+  <h1>what people are saying</h2>
+  <% if user_signed_in? %>
+    <%= link_to "Add new review", new_review_path, class: "pseudo_button" %>
+  <% end %>
 
-<% if user_signed_in? %>
-  <%= link_to "New Review", new_review_path %>
-<% end %>
+  <p>
+    Thank you to everyone who took the time to write a review of the band. We really appreciate your kind words!
+  </p>
 
-<% @reviews.each do |review| %>
-  "<%= review.summary %>" -<%= review.name %> (<%= review.date.strftime(%m %d %y) %>)
-<% end %>
+  <ul class="blocked">
+    <% @reviews.each do |review| %>
+      <li>
+        <% if user_signed_in? %>
+          <div class="pos_fr">
+            <%= link_to edit_review_path(review) do %>
+              <%= icon('edit', '', class: "pos_fr strong") %>
+            <% end %>
+          </div>
+        <% end %>
+        "<%= review.summary %>" <br>
+        <div class="align_right">-<%= review.name %> (<%= review.date.strftime("%m.%d.%y") %>)</div>
+      </li>
+    <% end %>
+  </ul>
+</div>
