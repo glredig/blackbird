@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816085741) do
+ActiveRecord::Schema.define(version: 20140906101254) do
 
   create_table "bios", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140816085741) do
     t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bio_image"
   end
 
   create_table "events", force: true do |t|

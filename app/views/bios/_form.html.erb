@@ -1,0 +1,9 @@
+<%= simple_form_for bio do |form| %>
+  <%= form.input :name %>
+  <%= form.input :instruments %>
+  <%= form.input :summary, as: :text %>
+  <%= form.file_field :bio_image %>
+  
+  <br><br>
+  <%= form.button :submit %>
+<% end %>

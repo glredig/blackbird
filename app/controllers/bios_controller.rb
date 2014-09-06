@@ -13,7 +13,7 @@ class BiosController < ApplicationController
     @bio = Bio.create(bio_params)
 
     if @bio.save
-      flash[:succes] = "Bio added."
+      flash[:success] = "Bio added."
       redirect_to bios_path
     else
       flash[:alert] = "Error in saving bio."
@@ -53,7 +53,7 @@ class BiosController < ApplicationController
   private
 
   def bio_params
-    params.require(:bio).permit(:name, :instruments, :summary)
+    params.require(:bio).permit(:name, :instruments, :summary, :bio_image)
   end
 
   def check_admin

@@ -14,4 +14,7 @@
   <p>
     <%= bio.summary %>
   </p>
+  <% if bio.bio_image.present? %>
+    <%= image_tag bio.bio_image.thumb.url %>
+  <% end %>
 <% end %>
