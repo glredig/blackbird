@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300italic,300' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <section id="header">
@@ -14,10 +15,13 @@
           <%= image_tag 'blackbird_logo_grunge.png' %>
         <% end %>
 
+        <i class="fa fa-bars mobile_show"></i>
+
         <ul id="nav_list">
-          <li>samples</li>
+          <li><%= link_to "samples", samples_path %></li>
           <li><%= link_to "bios", bios_path %></li>
           <li><%= link_to "songlist", songs_path %></li>
+          <li><%= link_to "calendar", events_path %></li>
           <li>gallery</li>
           <li><%= link_to "reviews", reviews_path %></li>
           <li>contact us</li>

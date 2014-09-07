@@ -10,7 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require font-awesome
  */
+
+@import 'reset.scss';
+@import 'mixins.scss';
+@import 'global.scss';
+@import 'nav.scss';
+@import 'home.scss';
+@import '_desktop.scss';
+@import '_mobile.scss';

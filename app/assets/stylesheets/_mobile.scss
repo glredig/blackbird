@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  #nav_list {
+    display: none;
+  }
+
+  .mobile_show {
+    display: inline-block;
+  }
+
+  .centered_content {
+    width: 100%;
+  }
+
+  div.two_thirds, div.one_third {
+    width: 85%;
+    margin-right: 2%;
+    float: none;
+  }
+}

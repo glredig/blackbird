@@ -1,9 +1,9 @@
 section#content {
   background: url(image_path('blackbird_main_bkg.jpg'));
-  position: fixed;
+  // position: fixed;
   height: 100%;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 6em;
 }
 
 div.two_thirds {
@@ -13,13 +13,15 @@ div.two_thirds {
   padding: 2em;
   background-color: #cccccc;
   color: #333333;
+  border-radius: .5em;
 }
 
 div.one_third {
-  width: 24%;
+  width: 28%;
   margin: 2%;
   float: right;
   padding: 1em;
   background-color: #333333;
   color: #eeeeee;
+  box-shadow: inset 0 0 1.5em 0 #383838, inset 0 0 .09em 0 #fff, 0 0 1.3em 0 #222;
 }

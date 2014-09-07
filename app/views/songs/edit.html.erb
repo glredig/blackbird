@@ -1,8 +1,3 @@
 <h1>Edit song</h1>
 
-<%= simple_form_for @song do |form| %>
-  <%= form.input :title %>
-  <%= form.input :artist %>
-
-  <%= form.button :submit %>
-<% end %>
+<%= render partial: "form", locals: { song: @song } %>
