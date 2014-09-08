@@ -12,7 +12,8 @@
     <section id="header">
       <div class="centered_content">
         <%= link_to root_path, id: "home_logo_link" do %>
-          <%= image_tag 'blackbird_logo_grunge.png' %>
+          <%= image_tag 'blackbird_logo_grunge.png', class: "desktop_show" %>
+          <%= image_tag 'mobile_logo1.png', class: "mobile_show" %>
         <% end %>
 
         <i class="fa fa-bars mobile_show"></i>
@@ -37,11 +38,11 @@
       </div>
     </section>
   <section id="footer">
-    <div class="centered_content">
-      <div class="pos_fl">
+    <div id="centered_content">
+      <div class="user_widget">
         <%= render partial: "layouts/user_widget" %>
       </div>
-      <div class="pos_fr">
+      <div id="social_media">
         <ul class="inline">
           <li>
             <%= link_to "http://www.facebook.com/BlackbirdOregon" do %>

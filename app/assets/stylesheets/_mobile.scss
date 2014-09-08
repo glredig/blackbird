@@ -1,6 +1,10 @@
-@media (max-width: 768px) {
+@media (max-width: 865px) {
   body {
     font-size: 16px;
+  }
+
+  .desktop_show {
+    display: none !important;
   }
 
   #nav_list {
@@ -19,5 +23,21 @@
     width: 85%;
     margin-right: 2%;
     float: none;
+  }
+
+  section#footer {
+    #social_media {
+      margin: 0 auto;
+      display: block;
+      float: none;
+
+      li {
+        margin-right: 4em;
+      }
+
+      li:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

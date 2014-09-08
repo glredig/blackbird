@@ -44,20 +44,35 @@ section#footer {
   line-height: 3em;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 98%;
   background-color: #111;
-  padding-top: 1em;
+  padding: 1em 1% 0;
 
   li {
+      margin-right: 3em;
+
     i {
-      margin-right: 1em;
       font-size: 2em; 
       color: $secondary_blue;
 
       &:hover {
         color: #888;
-      }     
+      }   
+      
     }
+
+    &:last-child {
+      margin-right: 0;
+    }  
+  }
+
+  #social_media {
+    width: 14em;
+    display: block;
+  }
+
+  .user_widget {
+    float: left;
   }
 }
 
