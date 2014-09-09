@@ -7,6 +7,10 @@
     display: none !important;
   }
 
+  #nav_trigger {
+    cursor: pointer;
+  }
+
   #nav_list {
     display: none;
     position: absolute;
@@ -47,14 +51,23 @@
     display: inline-block;
   }
 
+  section#content {
+    padding-top: 1em;
+  }
+
   .centered_content {
     width: 100%;
   }
 
+  .pushed_content {
+    margin-top: 0;
+  }
+
   div.two_thirds, div.one_third {
-    width: 85%;
+    width: 92%;
     margin-right: 2%;
     float: none;
+    padding: 2%;
   }
 
   section#footer {

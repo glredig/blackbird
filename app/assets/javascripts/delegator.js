@@ -1,4 +1,7 @@
-$(document).ready(function() {
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+function ready() {
   
   // Navigation show/hide
   NavPopup.init({
@@ -7,5 +10,4 @@ $(document).ready(function() {
     trigger_el: $('#nav_trigger')[0],
     list_el: $('#nav_list')[0]
   });
-
-});
+}
