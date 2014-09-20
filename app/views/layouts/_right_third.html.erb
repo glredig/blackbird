@@ -1,0 +1,18 @@
+<div class="one_third">
+  <h2>Events</h2>
+  <% @events.each do |event| %>
+    <%= event.summary %><br>
+  <% end %>
+  <%= link_to "View All", events_path %>
+</div>
+
+<div class="one_third">
+  <h2>Reviews</h2>
+  <% @reviews.each do |review| %>
+    <%= review.summary %><br>
+  <% end %>
+  <%= link_to "View All", reviews_path %>
+</div>
+<div class="one_third">
+  <%= render partial: "layouts/email_signup" %>
+</div>

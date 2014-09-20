@@ -51,7 +51,7 @@
     display: inline-block;
   }
 
-  section#content {
+  section#content:not(.home) {
     padding-top: 1em;
   }
 
@@ -64,8 +64,7 @@
   }
 
   div.two_thirds, div.one_third {
-    width: 92%;
-    margin-right: 2%;
+    width: 96%;
     float: none;
     padding: 2%;
   }

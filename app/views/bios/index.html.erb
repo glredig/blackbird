@@ -1,20 +1,23 @@
-<h1>Bios</h2>
+<div class="two_thirds">
+  <h1>Bios</h2>
 
-<% if user_signed_in? %>
-  <%= link_to "New Bio", new_bio_path %>
-<% end %>
-
-<% @bios.each do |bio| %>
-  <%= bio.name %> (<%= bio.instruments %>) 
   <% if user_signed_in? %>
-    <%= link_to "Edit", edit_bio_path(bio) %>
+    <%= link_to "New Bio", new_bio_path %>
   <% end %>
 
-  <br>
-  <p>
-    <%= bio.summary %>
-  </p>
-  <% if bio.bio_image.present? %>
-    <%= image_tag bio.bio_image.thumb.url %>
+  <% @bios.each do |bio| %>
+    <%= bio.name %> (<%= bio.instruments %>) 
+    <% if user_signed_in? %>
+      <%= link_to "Edit", edit_bio_path(bio) %>
+    <% end %>
+
+    <br>
+    <p>
+      <%= bio.summary %>
+    </p>
+    <% if bio.bio_image.present? %>
+      <%= image_tag bio.bio_image.thumb.url %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+<%= render partial: "layouts/right_third" %>

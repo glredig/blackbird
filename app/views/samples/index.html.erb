@@ -1,10 +1,13 @@
-<h1>Samples</h1>
+<div class="two_thirds">  
+  <h1>Samples</h1>
 
-Here are some samples
+  Here are some samples
 
-<h2>Audio</h2>
-<% @audio_samples.each do |sample| %>
-  <%= link_to sample.sound_clip.url do %>
-    <%= sample.title %> - <%= sample.artist %> <i class='fa fa-volume-up'></i>
+  <h2>Audio</h2>
+  <% @audio_samples.each do |sample| %>
+    <%= link_to sample.sound_clip.url do %>
+      <%= sample.title %> - <%= sample.artist %> <i class='fa fa-volume-up'></i>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+<%= render partial: "layouts/right_third" %>

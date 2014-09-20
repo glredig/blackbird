@@ -1,5 +1,8 @@
-<h1>upcoming events</h1>
-<%= link_to "Add event", new_event_path %>
-<% @events.each do |event| %>
-  <%= event.summary %>
-<% end %>
+<div class="two_thirds">
+  <h1>upcoming events</h1>
+  <%= link_to "Add event", new_event_path %>
+  <% @events.each do |event| %>
+    <%= event.summary %>
+  <% end %>
+</div>
+<%= render partial: "layouts/right_third" %>

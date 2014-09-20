@@ -1,29 +1,32 @@
-<div class="pushed_content translucent">
-  <h1>song list</h2>
-  <% if user_signed_in? %>
-    <%= link_to "Add new song", new_song_path, class: "pseudo_button" %>
-  <% end %>
-
-  <p>
-    Below is a list of songs that Blackbird has performed at previous events.
-  </p>
-
-  <ul class="blocked">
-    <% @songs.each do |song| %>
-      <li>
-        <% if user_signed_in? %>
-          <div class="pos_fr">
-            <%= link_to edit_song_path(song) do %>
-              <%= icon('edit', '', class: "pos_fr strong") %>
-            <% end %>
-          </div>
-        <% end %>
-        <% if song.sound_clip.present? %>
-          <%= link_to song.title, song.sound_clip.url %> - <%= song.artist %> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url %>
-        <% else %>
-          <%= song.title %> - <%= song.artist %>
-        <% end %>
-      </li>
+<div class="two_thirds">  
+  <div class="pushed_content translucent">
+    <h1>song list</h2>
+    <% if user_signed_in? %>
+      <%= link_to "Add new song", new_song_path, class: "pseudo_button" %>
     <% end %>
-  </ul>
+
+    <p>
+      Below is a list of songs that Blackbird has performed at previous events.
+    </p>
+
+    <ul class="blocked">
+      <% @songs.each do |song| %>
+        <li>
+          <% if user_signed_in? %>
+            <div class="pos_fr">
+              <%= link_to edit_song_path(song) do %>
+                <%= icon('edit', '', class: "pos_fr strong") %>
+              <% end %>
+            </div>
+          <% end %>
+          <% if song.sound_clip.present? %>
+            <%= link_to song.title, song.sound_clip.url %> - <%= song.artist %> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url %>
+          <% else %>
+            <%= song.title %> - <%= song.artist %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
+<%= render partial: "layouts/right_third" %>
