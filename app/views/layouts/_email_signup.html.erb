@@ -1,0 +1,6 @@
+<h1>Event Notifications</h1>
+<p>This list is only used for event notification.</p>
+<%= form_tag('apis/email/subscribe', method: "post", id: "subscribe", remote: "true") do -%>
+   <%= email_field(:email, :address, {id: "email", placeholder: "email address"}) %>
+   <%= submit_tag("Sign me up!") %>
+<% end %>

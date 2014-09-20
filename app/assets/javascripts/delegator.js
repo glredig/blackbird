@@ -10,4 +10,15 @@ function ready() {
     trigger_el: $('#nav_trigger')[0],
     list_el: $('#nav_list')[0]
   });
+
+  //
+  if ($('#slideshow').length) {
+    var $slides_wrapper = $('#slideshow'),
+        url = $slides_wrapper.attr('data-url');
+
+    SlideShow.init({
+      wrapper: ($slides_wrapper)[0],
+      url: url
+    })
+  }
 }

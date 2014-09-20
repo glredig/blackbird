@@ -17,6 +17,7 @@ gem 'fog'
 gem 'nested_form'
 gem 'sidekiq'
 gem 'font-awesome-sass'
+gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
 
 gem 'spring',        group: :development
 

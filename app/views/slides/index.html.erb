@@ -1,0 +1,10 @@
+<h1>Slides</h2>
+
+<% if user_signed_in? %>
+  <%= link_to "New Slide", new_slide_path %>
+<% end %>
+
+<% @slides.each do |slide| %>
+  <%= image_tag slide.slide_image.thumb.url %>    
+  <%= link_to "Edit Slide", edit_slide_path(slide) %>
+<% end %>

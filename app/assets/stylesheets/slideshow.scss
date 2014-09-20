@@ -1,0 +1,57 @@
+div#slideshow {
+  width: 100%;
+  float: left;
+  padding: 0;
+  box-shadow: 0 0 .5em 0 #000;
+  position: relative;
+  background-color: #111;
+  min-height: 600px;
+
+  .slide {
+    position: absolute;
+  }
+
+  img {
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .summary_wrapper {
+    position: absolute;
+    width: 45%;
+    background: rgba(0, 0, 0, .8);
+
+    &.top {
+      top: 3%;
+      right: 0;
+      text-align: left;
+    }
+
+    &.bottom {
+      left: 0;
+      bottom: 3%;
+      text-align: right;
+    }
+
+    p {
+      text-indent: 0;
+    }
+
+    p.summary {
+      margin: .5em .5em .2em;
+      font-size: 1.5em;
+      line-height: 1.1em;
+      color: #999;
+    }
+
+    p.caption {
+      margin: 0 .5em .5em;
+      font-size: 1em;
+      color: #52659a;
+
+      a {
+        color: #4e6092;
+      }
+    }
+  }
+}

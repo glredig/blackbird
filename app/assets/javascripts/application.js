@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require NavPopup
+//= require Slideshow
 //= require delegator
 //= require_self

@@ -1,3 +1,6 @@
+<div id="slideshow" data-url="<%= slides_path %>.json">
+</div>
+
 <div class="two_thirds">
 <p>
   Blackbird is a talented band made up of four musicians that are local to the area west of Portland, Oregon (Beaverton/Hillsboro) in the beautiful Northwest.
@@ -49,5 +52,8 @@ To send the band a comment or question, please visit the contact us page.
     <%= review.summary %><br>
   <% end %>
   <%= link_to "View All", reviews_path %>
+</div>
+<div class="one_third">
+  <%= render partial: "layouts/email_signup" %>
 </div>
 <div class="clear"></div>

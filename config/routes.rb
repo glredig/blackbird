@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   resources :songs
   resources :bios
   resources :reviews
+  resources :slides
+
+  namespace :apis do
+    post 'email/subscribe'
+  end
 end

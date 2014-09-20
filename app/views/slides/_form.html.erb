@@ -1,0 +1,16 @@
+<%= simple_form_for @slide do |form| %>
+  <%= form.input :summary %>
+  <%= form.input :caption %>
+  <%= form.input :label_placement, as: :integer %>
+  <%= form.input :publish, as: :boolean %>
+  <%= form.input :position, as: :integer %>
+  <hr style="width: 20%; margin-top: 1em;"/>
+  <%= form.file_field :slide_image %>
+  <br>
+  <% if @slide.slide_image %>
+    Current Image:<br>
+    <%= image_tag @slide.slide_image.thumb.url %>
+  <% end %>
+  <br>
+  <%= form.button :submit %>
+<% end %>
