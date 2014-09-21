@@ -1,0 +1,9 @@
+<%= simple_form_for media_image do |form| %>
+  <%= form.input :summary %>
+  <%= form.input :credit %>
+  <%= form.hidden_field :media_event_id, value: params[:media_event_id] %>
+  <%= form.file_field :media_gallery_image %>
+  
+  <br><br>
+  <%= form.button :submit %>
+<% end %>

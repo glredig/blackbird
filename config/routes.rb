@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :bios
   resources :reviews
   resources :slides
+  resources :media_events, path: "/gallery"
+  resources :media_images
 
   namespace :apis do
     post 'email/subscribe'

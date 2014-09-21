@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910040233) do
+ActiveRecord::Schema.define(version: 20140920105335) do
 
   create_table "bios", force: true do |t|
     t.string   "name"
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 20140910040233) do
     t.integer  "pay"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "media_events", force: true do |t|
+    t.string   "summary"
+    t.datetime "event_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_images", force: true do |t|
+    t.string   "summary"
+    t.string   "credit"
+    t.string   "media_gallery_image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "media_event_id"
   end
 
   create_table "reviews", force: true do |t|

@@ -1,0 +1,24 @@
+<div class="two_thirds">
+  <h1>Media Gallery</h1>
+
+  <% if user_signed_in? %>
+    <%= link_to "New Event", new_media_event_path %>
+  <% end %>
+
+  <ul class="blocked gallery">
+  <% @events.all.each do |event| %>
+    <li>
+      <%= event.event_date.strftime('%m/%d/%Y') %> - <%= event.summary %>
+      <% if user_signed_in? %>
+        <%= link_to "Edit", edit_media_event_path(event) %>
+      <% end %>
+      <br><br>
+      <% event.media_images.each do |image| %>
+        <%= image_tag image.media_gallery_image.thumb.url %>
+      <% end %>
+    </li>
+  <% end %>  
+  <div class="clear"></div>
+  </ul>
+</div>
+<%= render partial: "layouts/right_third" %>
