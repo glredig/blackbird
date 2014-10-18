@@ -1,0 +1,54 @@
+.arc_calendar_container {
+  width: 100%;
+  min-height: 4.5em;
+  border: .2em solid #333;
+
+  .arc_calendar_menu {
+    .arc_calendar_prev_month,
+    .arc_calendar_next_month {
+      float: left;
+      width: 20%;
+      text-align: center;
+    }
+
+    .arc_calendar_current_month {
+      float: left;
+      width: 60%;
+      text-align: center;
+    }
+
+    .arc_calendar_next_month {
+      &:after {
+        content: '';
+        clear: both;
+      }
+    }
+
+    &:after {
+      content: '';
+      clear: both;
+    }
+  }
+
+  .arc_calendar_cal_container {
+    &:before {
+      content: '';
+      clear: both;
+    }
+    background-color: #eeffee;
+    min-height: 3em;
+
+    table {
+      width: 100%;
+    }
+
+    .arc_calendar_day_header {
+      width: 14.28%;
+      text-align: center;
+    }
+
+    .arc_calendar_inactive_day {
+      background-color: #444444;
+    }
+  }
+}

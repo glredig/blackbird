@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require NavPopup
 //= require Slideshow
+//= require ArcCalendar
 //= require delegator
 //= require_self

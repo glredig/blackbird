@@ -1,5 +1,9 @@
 <div class="two_thirds">
   <h1>upcoming events</h1>
+
+  <div id="calendar"></div>
+
+
   <%= link_to "Add event", new_event_path %>
   <% @events.each do |event| %>
     <%= event.summary %>

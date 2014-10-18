@@ -21,4 +21,10 @@ function ready() {
       url: url
     })
   }
+
+  if ($('#calendar').length) {
+    arc_calendar.init({
+      container: $('#calendar')[0]
+    })
+  }
 }
