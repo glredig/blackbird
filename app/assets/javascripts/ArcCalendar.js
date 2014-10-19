@@ -300,16 +300,20 @@ var arc_calendar = (function() {
 
   Day.prototype = {
     init: function() {
-      var i;
+      var i,
+          event_type;
 
       for (i = 0; i < this.parent.parent.data.length; i++) {
-        console.log("data: ", this.parent.parent.data[i].date, "day: ", this.dateToString());
         if (this.parent.parent.data[i].date == this.dateToString()) {
           this.events.push(this.parent.parent.data[i]);
+          console.log(this.parent.parent.data[i]);
+          event_type = (this.parent.parent.data[i] == undefined ? 'none' : this.parent.parent.data[i]["accessible"]);
           this.parent.parent.removeEvent(i);
-          this.cell.className += " has_event";
+          this.cell.className += " has_event type_" + event_type;
         }
       }
+
+      this.popup = new Popup();
     },
 
     setDay: function(day) {
@@ -334,12 +338,30 @@ var arc_calendar = (function() {
     }
   }
 
-  function Event() {
+  function Popup() {
 
   }
 
-  Event.prototype = {
+  Popup.prototype = {
+    init: function() {
+      this._build();
+    },
 
+    _build: function() {
+
+    },
+
+    show: function() {
+
+    },
+
+    hide: function() {
+
+    },
+
+    toggle: function() {
+
+    }
   }
 
   function getEvents() {

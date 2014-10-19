@@ -9,6 +9,7 @@
       float: left;
       width: 20%;
       text-align: center;
+      cursor: pointer;
     }
 
     .arc_calendar_current_month {
@@ -54,11 +55,13 @@
     td:not(.arc_calendar_day_header) {
       border: .1em solid #999;
       padding: 0;
+      cursor: pointer;
       div {
         height: 3em;
         padding: .2em .3em;
         font-size: 1.2em;
         color: #999;
+        position: relative;
       }
     }
 
