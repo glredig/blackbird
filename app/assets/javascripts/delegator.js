@@ -24,7 +24,8 @@ function ready() {
 
   if ($('#calendar').length) {
     arc_calendar.init({
-      container: $('#calendar')[0]
+      container: $('#calendar')[0],
+      url: $('#calendar').attr('data-url')
     })
   }
 }

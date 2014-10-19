@@ -3,6 +3,18 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+
+    @display_events = []
+
+    @events.each do |event|
+      display_event = { summary: event.summary, accessible: event.accessible, location: event.location, date: event.date.strftime('%m-%d-%Y')}
+      @display_events << display_event
+    end
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @display_events }
+    end
   end
 
   def show

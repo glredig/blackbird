@@ -40,15 +40,35 @@
 
     table {
       width: 100%;
+      border-collapse: collapse;
     }
 
     .arc_calendar_day_header {
       width: 14.28%;
       text-align: center;
+      border-bottom: .2em solid #555;
+      font-variant: small-caps;
+      font-weight: bold;
     }
 
-    .arc_calendar_inactive_day {
-      background-color: #444444;
+    td:not(.arc_calendar_day_header) {
+      border: .1em solid #999;
+      padding: 0;
+      div {
+        height: 3em;
+        padding: .2em .3em;
+        font-size: 1.2em;
+        color: #999;
+      }
+    }
+
+    td.arc_calendar_inactive_day {
+      background-color: #888;
+      border: .1em solid #000;
+    }
+
+    .has_event {
+      background-color: #aaffaa;
     }
   }
 }

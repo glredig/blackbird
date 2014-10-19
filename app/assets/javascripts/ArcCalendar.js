@@ -5,7 +5,7 @@ var arc_calendar = (function() {
       },
       MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-      DAYS_OF_THE_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
       container,
       blank_date_message;
 
@@ -14,11 +14,11 @@ var arc_calendar = (function() {
     this.menu = {};
     this.cal = {};
     this.cache = {};
+    this.events_url = config.events_url + '.json';
   }
 
   Calendar.prototype = {
     init: function() {
-      console.log("hi");
       var today = new Date();
 
       this.todays = {
@@ -28,7 +28,7 @@ var arc_calendar = (function() {
         day_of_the_week: today.getDay()
       }
 
-      this._build();
+      this.getEvents(this._build);
     },
 
     _build: function() {
@@ -97,43 +97,7 @@ var arc_calendar = (function() {
         next_month.month = this.active_month.month + 1;
       }
 
-      /** Year exists in cache */
-      if (typeof this.cache[next_month.year] == 'object') {
-        /** Month exists in cache; load it */
-        if (typeof this.cache[next_month.year][next_month.month] == 'object') {
-          this.active_month.hide();
-          this.active_month = this.cache[next_month.year][next_month.month];
-          this.active_month.show();
-        }
-        /** Month does not exist in cache; build it */
-        else {
-          this.active_month.hide();
-          this.cache[next_month.year][next_month.month] = new Month({
-            year: next_month.year,
-            parent: this,
-            month: next_month.month
-          });
-
-          this.cache[next_month.year][next_month.month].init();
-          this.active_month = this.cache[next_month.year][next_month.month];
-        }
-      }
-      else {
-        this.active_month.hide();
-        this.cache[next_month.year] = {};
-        this.cache[next_month.year][next_month.month] = new Month({
-          year: next_month.year,
-          parent: this,
-          month: next_month.month
-        });
-
-        this.cache[next_month.year][next_month.month].init();
-        this.active_month = this.cache[next_month.year][next_month.month];
-      }
-
-      this.menu.currentMonth.innerHTML = MONTHS[this.active_month.month] + ' ' + this.active_month.year;
-
-      console.log(this.cache);
+      this.checkCacheAndUpdate(next_month);
     },
 
     prevMonth: function() {
@@ -148,43 +112,63 @@ var arc_calendar = (function() {
         previous_month.month = this.active_month.month - 1;
       }
 
+      this.checkCacheAndUpdate(previous_month);
+    },
+
+    checkCacheAndUpdate: function(updated_month) {
       /** Year exists in cache */
-      if (typeof this.cache[previous_month.year] == 'object') {
+      if (typeof this.cache[updated_month.year] == 'object') {
         /** Month exists in cache; load it */
-        if (typeof this.cache[previous_month.year][previous_month.month] == 'object') {
+        if (typeof this.cache[updated_month.year][updated_month.month] == 'object') {
           this.active_month.hide();
-          this.active_month = this.cache[previous_month.year][previous_month.month];
+          this.active_month = this.cache[updated_month.year][updated_month.month];
           this.active_month.show();
         }
         /** Month does not exist in cache; build it */
         else {
           this.active_month.hide();
-          this.cache[previous_month.year][previous_month.month] = new Month({
-            year: previous_month.year,
+          this.cache[updated_month.year][updated_month.month] = new Month({
+            year: updated_month.year,
             parent: this,
-            month: previous_month.month
+            month: updated_month.month
           });
 
-          this.cache[previous_month.year][previous_month.month].init();
-          this.active_month = this.cache[previous_month.year][previous_month.month];
+          this.cache[updated_month.year][updated_month.month].init();
+          this.active_month = this.cache[updated_month.year][updated_month.month];
         }
       }
       else {
         this.active_month.hide();
-        this.cache[previous_month.year] = {};
-        this.cache[previous_month.year][previous_month.month] = new Month({
-          year: previous_month.year,
+        this.cache[updated_month.year] = {};
+        this.cache[updated_month.year][updated_month.month] = new Month({
+          year: updated_month.year,
           parent: this,
-          month: previous_month.month
+          month: updated_month.month
         });
 
-        this.cache[previous_month.year][previous_month.month].init();
-        this.active_month = this.cache[previous_month.year][previous_month.month];
+        this.cache[updated_month.year][updated_month.month].init();
+        this.active_month = this.cache[updated_month.year][updated_month.month];
       }
 
       this.menu.currentMonth.innerHTML = MONTHS[this.active_month.month] + ' ' + this.active_month.year;
+    },
 
-      console.log(this.cache);
+    getEvents: function(callback) {
+      var xhr = new XMLHttpRequest(),
+          this_obj = this;
+
+      xhr.open('get', this.events_url);
+
+      xhr.addEventListener('load', function (e) {
+        this_obj.data = JSON.parse(xhr.responseText);
+        callback.apply(this_obj);
+      }, false);
+
+      xhr.send();
+    },
+
+    removeEvent: function(i) {
+      this.data.splice(i, 1);
     }
   }
 
@@ -205,6 +189,7 @@ var arc_calendar = (function() {
       }
 
       this.first_day = this.getFirstDay();
+      console.log("rows needed: ", this.getRowsNeeded());
       this.rows_needed = this.getRowsNeeded();
 
       this._build();
@@ -223,12 +208,11 @@ var arc_calendar = (function() {
         is_leap = true;
       }
 
-      return is_leap
+      return is_leap;
     },
 
     getFirstDay: function() {
       var d = new Date(this.month + 1 + '-1-' + this.year);
-
       return d.getDay();
     },
 
@@ -236,14 +220,14 @@ var arc_calendar = (function() {
       if (this.first_day == 0 && this.number_of_days < 29) {
         return 4
       }
-      else if (this.first_day > 4 && this.number_of_days == 31) {
-        return 5
+      else if (this.first_day > 5 && this.number_of_days == 31) {
+        return 6
       }
-      else if (this.first_day > 5 && this.number_of_days == 30) {
-        return 5
+      else if (this.first_day > 6 && this.number_of_days == 30) {
+        return 6
       }
       else {
-        return 4
+        return 5
       }
     },
 
@@ -264,23 +248,34 @@ var arc_calendar = (function() {
         cell.innerHTML = DAYS_OF_THE_WEEK[i];
       }
 
-      for (j = 0; j <= this.rows_needed; j++) {
+      for (j = 0; j < this.rows_needed; j++) {
         row = this.table.insertRow();
         this.rows.push(row);
 
         for (k = 0; k < 7; k++) {
-          day = new Day();
+          day = new Day({
+            parent: this
+          });
           day.cell = row.insertCell();
+          day.content_div = document.createElement('div');
+          day.content_div.className = 'arc_calendar_td_div';
+          day.cell.appendChild(day.content_div);
+          day.setYear(this.year);
 
           if (cell_count < (this.first_day - 1) || cell_day > this.number_of_days) {
             day.is_in_month = false;
+            day.setMonth(null);
             day.cell.className = 'arc_calendar_inactive_day';
           }
           else {
-            day.cell.innerHTML = cell_day;
+            day.setMonth(this.month);
+            day.setYear(this.year);
+            day.setDay(cell_day);
+            day.content_div.innerHTML = cell_day;
             cell_day++;
           }
 
+          day.init();
           cell_count++;
         }
       }
@@ -297,12 +292,46 @@ var arc_calendar = (function() {
     }
   }
 
-  function Day() {
+  function Day(config) {
     this.is_in_month = true;
+    this.parent = config.parent;
+    this.events = [];
   }
 
   Day.prototype = {
+    init: function() {
+      var i;
 
+      for (i = 0; i < this.parent.parent.data.length; i++) {
+        console.log("data: ", this.parent.parent.data[i].date, "day: ", this.dateToString());
+        if (this.parent.parent.data[i].date == this.dateToString()) {
+          this.events.push(this.parent.parent.data[i]);
+          this.parent.parent.removeEvent(i);
+          this.cell.className += " has_event";
+        }
+      }
+    },
+
+    setDay: function(day) {
+      this.day = day;
+    },
+
+    setMonth: function(month) {
+      this.month = month;
+    },
+
+    setYear: function(year) {
+      this.year = year;
+    },
+
+    dateToString: function() {
+      if (this.month != null && this.month != undefined) {
+        return ("0" + (this.month + 1)).slice(-2) + "-" + ("0" + this.day).slice(-2) + "-" + this.year;
+      }
+      else {
+        return false;
+      }
+    }
   }
 
   function Event() {
@@ -323,7 +352,8 @@ var arc_calendar = (function() {
       blank_date_message = config.default_message || 'No event';
 
       cal = new Calendar({
-        container: config.container
+        container: config.container,
+        events_url: config.url
       });
 
       cal.init();
