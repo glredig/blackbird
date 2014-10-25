@@ -6,6 +6,7 @@ var arc_calendar = (function() {
       MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
       DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+      EVENT_TYPES = ['Public', 'Private', 'Unavailable', 'Available'],
       container,
       blank_date_message;
 
@@ -13,6 +14,7 @@ var arc_calendar = (function() {
     this.container = config.container;
     this.menu = {};
     this.cal = {};
+    this.popup = {};
     this.cache = {};
     this.events_url = config.events_url + '.json';
   }
@@ -36,8 +38,10 @@ var arc_calendar = (function() {
 
       clear.className = 'clear';
 
+      /** Construction of calendar DOM elements */
       this.container.className += 'arc_calendar_container';
 
+      /** Build all menu elements */
       this.menu.container = document.createElement('div');
       this.menu.container.className = 'arc_calendar_menu';
       this.menu.prevMonth = document.createElement('div');
@@ -50,18 +54,50 @@ var arc_calendar = (function() {
       this.menu.nextMonth.innerHTML = '>';
       this.menu.nextMonth.className = 'arc_calendar_next_month';
 
+      /** Add menu elements to menu container */
       this.menu.container.appendChild(this.menu.prevMonth);
-      this.menu.container.appendChild(this.menu.currentMonth);
       this.menu.container.appendChild(this.menu.nextMonth);
+      this.menu.container.appendChild(this.menu.currentMonth);
       this.menu.container.appendChild(clear);
 
+      /** Add menu to arc_calendar container */
       this.container.appendChild(this.menu.container);
 
+      /** Create calendar (days) element */
       this.cal.container = document.createElement('div');
       this.cal.container.className = 'arc_calendar_cal_container';
 
+      /** Add calendar (days) element to arc_calendar container */
       this.container.appendChild(this.cal.container);
 
+      /** Create overlay element and add to arc_calendar container */
+      this.cal.overlay = document.createElement('div');
+      this.cal.overlay.className = 'arc_calendar_overlay';
+      this.container.appendChild(this.cal.overlay);
+
+      /** Create popup container element */
+      this.popup.node = document.createElement('div');
+      this.popup.node.className = 'arc_calendar_popup_container';
+
+      /** Create popup dynamic content container element */
+      this.popup.content_node = {};
+      this.popup.content_node = document.createElement('div');
+      this.popup.content_node.className = 'arc_calendar_popup_dynamic_content';
+
+      /** Create popup close button element */
+      this.popup.close_button = {};
+      this.popup.close_button.node = document.createElement('div');
+      this.popup.close_button.node.className = 'arc_calendar_close_button';
+      this.popup.close_button.node.innerHTML = 'x';
+
+      /** Append close button element to arc_calendar container */
+      this.popup.node.appendChild(this.popup.close_button.node);
+      this.popup.node.appendChild(this.popup.content_node);
+      this.container.appendChild(this.popup.node);
+
+      /** Simple cache object to remember already constructed months
+      *   Start with this month as the initial entry
+      */
       this.cache[this.todays.year] = {};
 
       this.cache[this.todays.year][this.todays.month] = new Month({
@@ -72,6 +108,7 @@ var arc_calendar = (function() {
 
       this.cache[this.todays.year][this.todays.month].init();
       
+      /** Track the month currently displayed */
       this.active_month = this.cache[this.todays.year][this.todays.month];
 
       /** Set up listeners */
@@ -83,6 +120,9 @@ var arc_calendar = (function() {
         this.nextMonth();
       }, this));
 
+      $(this.popup.close_button.node).on('click', $.proxy(function() {
+        this.closePopup();
+      }, this));
     },   
 
     nextMonth: function() {
@@ -118,13 +158,13 @@ var arc_calendar = (function() {
     checkCacheAndUpdate: function(updated_month) {
       /** Year exists in cache */
       if (typeof this.cache[updated_month.year] == 'object') {
-        /** Month exists in cache; load it */
+        /** Month exists in cached year; load it */
         if (typeof this.cache[updated_month.year][updated_month.month] == 'object') {
           this.active_month.hide();
           this.active_month = this.cache[updated_month.year][updated_month.month];
           this.active_month.show();
         }
-        /** Month does not exist in cache; build it */
+        /** Month does not exist in cached year; build it */
         else {
           this.active_month.hide();
           this.cache[updated_month.year][updated_month.month] = new Month({
@@ -167,8 +207,41 @@ var arc_calendar = (function() {
       xhr.send();
     },
 
+    /** Used to remove events from calendar data array once
+    *   they are assigned to their appropriate day
+    */
     removeEvent: function(i) {
       this.data.splice(i, 1);
+    },
+
+    showPopup: function(events) {
+      var i = 0,
+          type_label,
+          summary;
+
+      /** Clear content from popup */
+      this.popup.content_node.innerHTML = '';
+
+      /** Add all events for clicked Day to popup */
+      for (i; i < events.length; i++) {
+        type_label = document.createElement('div');
+        type_label.className = 'arc_calendar_event_type_label type_' + events[i].accessible;
+        type_label.innerHTML = EVENT_TYPES[events[i].accessible];
+
+        summary = document.createElement('div');
+        summary.className = 'arc_calendar_event_summary';
+        summary.innerHTML = events[i].summary;
+        this.popup.content_node.appendChild(type_label);
+        this.popup.content_node.appendChild(summary);
+      }
+
+      this.cal.overlay.style.display = 'block';
+      this.popup.node.style.display = 'block';
+    },
+
+    closePopup: function() {
+      this.cal.overlay.style.display = 'none';
+      this.popup.node.style.display = 'none';
     }
   }
 
@@ -184,12 +257,12 @@ var arc_calendar = (function() {
     init: function() {
       this.number_of_days = DAYS_IN_MONTH[this.month];
 
+      /** Adjust number of days if February and leap year */
       if (this._check_leap() && this.month == 1) {
         this.number_of_days = 29;
       }
 
       this.first_day = this.getFirstDay();
-      console.log("rows needed: ", this.getRowsNeeded());
       this.rows_needed = this.getRowsNeeded();
 
       this._build();
@@ -262,6 +335,7 @@ var arc_calendar = (function() {
           day.cell.appendChild(day.content_div);
           day.setYear(this.year);
 
+          /** If current day is outside of current month */
           if (cell_count < (this.first_day - 1) || cell_day > this.number_of_days) {
             day.is_in_month = false;
             day.setMonth(null);
@@ -306,14 +380,27 @@ var arc_calendar = (function() {
       for (i = 0; i < this.parent.parent.data.length; i++) {
         if (this.parent.parent.data[i].date == this.dateToString()) {
           this.events.push(this.parent.parent.data[i]);
-          console.log(this.parent.parent.data[i]);
           event_type = (this.parent.parent.data[i] == undefined ? 'none' : this.parent.parent.data[i]["accessible"]);
           this.parent.parent.removeEvent(i);
           this.cell.className += " has_event type_" + event_type;
         }
       }
 
-      this.popup = new Popup();
+      // TODO: make this default event configurable at higher level
+      if (this.events.length == 0 && this.is_in_month) {
+        this.events.push({
+          accessible: 3,
+          summary: blank_date_message
+        });
+        this.cell.className += " has_event type_3";
+      }
+
+      /** Set up listener */
+      if (this.is_in_month) {
+        $(this.content_div).on('click', $.proxy(function() {
+          this.parent.parent.showPopup(this.events);
+        }, this));
+      }
     },
 
     setDay: function(day) {
@@ -337,36 +424,6 @@ var arc_calendar = (function() {
       }
     }
   }
-
-  function Popup() {
-
-  }
-
-  Popup.prototype = {
-    init: function() {
-      this._build();
-    },
-
-    _build: function() {
-
-    },
-
-    show: function() {
-
-    },
-
-    hide: function() {
-
-    },
-
-    toggle: function() {
-
-    }
-  }
-
-  function getEvents() {
-
-  } 
 
   return {
     init: function(config) {
