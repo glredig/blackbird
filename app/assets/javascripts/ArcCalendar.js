@@ -6,7 +6,7 @@ var arc_calendar = (function() {
       MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
       DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-      EVENT_TYPES = ['Public', 'Private', 'Unavailable', 'Available'],
+      EVENT_TYPES,
       container,
       blank_date_message;
 
@@ -429,6 +429,7 @@ var arc_calendar = (function() {
     init: function(config) {
       var cal;
       blank_date_message = config.default_message || 'No event';
+      EVENT_TYPES = config.event_types;
 
       cal = new Calendar({
         container: config.container,

@@ -25,7 +25,8 @@ function ready() {
   if ($('#calendar').length) {
     arc_calendar.init({
       container: $('#calendar')[0],
-      url: $('#calendar').attr('data-url')
+      url: $('#calendar').attr('data-url'),
+      event_types: ['Public', 'Private', 'Unavailable', 'Available']
     })
   }
 }

@@ -17,7 +17,7 @@
   }
 
   .type_3 {
-    background-color: #ffddff;
+    background-color: #f2f3da;
   }
 
   .arc_calendar_menu {
@@ -26,7 +26,7 @@
     .arc_calendar_prev_month,
     .arc_calendar_next_month {
       float: left;
-      margin-left: 2em;
+      margin-left: 1em;
       width: 1.5em;
       height: 1.5em;
       margin-top: .3em;
@@ -46,7 +46,6 @@
     }
 
     .arc_calendar_current_month {
-      // float: left;
       margin: 0 auto;
       width: 60%;
       text-align: center;
@@ -57,7 +56,7 @@
 
     .arc_calendar_next_month {
       float: right;
-      margin-right: 2em;
+      margin-right: 1em;
       margin-left: auto;
 
       &:after {
