@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "home/index"
   get "/samples", to: 'samples#index'
-  get '/contact', to: 'contacts#new'
+  get '/contacts', to: 'contacts#new'
 
   root to: 'home#index'
 

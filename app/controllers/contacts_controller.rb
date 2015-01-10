@@ -13,5 +13,7 @@ class ContactsController < ApplicationController
       flash.now[:alert] = 'Cannot send message.'
       render :new
     end
+
+    head :ok
   end
 end
