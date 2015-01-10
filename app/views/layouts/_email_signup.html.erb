@@ -1,6 +1,13 @@
-<h1>Event Notifications</h1>
+<h2>Event Notifications</h2>
+<div id="email_signup_form">
 <p>This list is only used for event notification.</p>
 <%= form_tag('apis/email/subscribe', method: "post", id: "subscribe", remote: "true") do -%>
    <%= email_field(:email, :address, {id: "email", placeholder: "email address"}) %>
    <%= submit_tag("Sign me up!") %>
 <% end %>
+</div>
+<div id="email_signup_spinner">
+  <div class="center">Signing up...</div>
+  <div class="loader"></div>
+</div>
+<div id="email_signup_message"></div>

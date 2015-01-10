@@ -38,12 +38,15 @@ a {
   }
 }
 
-a.pseudo_button {
+a.pseudo_button, input[type=submit] {
+  cursor: pointer;
+  border: none;
   background-color: $secondary_blue;
   border-radius: .3em;
   box-shadow: .1em .1em 0 0 #333;
   padding: .5em;
   font-weight: normal;
+  font-size: 1em;
   color: #eee;
 
   &:hover {
@@ -128,4 +131,87 @@ ul {
   background-color: rgba(64, 73, 95, .3);
   border: .1em solid rgba(70, 83, 105, .3);
   box-shadow: 0 0 .1em .1em rgba(30, 30, 30, .3);
+}
+
+#email_signup_spinner {
+  margin: 2em 0;
+  display: none;
+
+  div.center {
+    text-align: center;
+  }
+}
+
+#email_signup_message {
+  margin: 2em 0;
+  display: none;
+  border: .1em solid #aaccaa;
+  padding: 1em;
+
+  &.error {
+    border-color: #ccaaaa;
+  }
+}
+
+.loader {
+  font-size: .3em;
+  margin: 3em auto;
+  text-indent: -9999em;
+  color: #ffffff;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+}
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #FFF;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #000000;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

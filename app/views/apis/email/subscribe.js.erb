@@ -1,0 +1,10 @@
+<% if @js_email_error %>
+  $("#email_signup_message").html("<%= @js_email_error %>");
+  $("#email_signup_message").addClass('error');
+  $("#email_signup_message").show();
+<% end %>
+<% if @js_email_success %>
+  $("#email_signup_message").html("<%= @js_email_success %>");
+  $("#email_signup_message").show();
+  $("#email_signup_spinner").hide();
+<% end %>

@@ -16,5 +16,6 @@
 //= require NavPopup
 //= require Slideshow
 //= require ArcCalendar
+//= require emailSignup
 //= require delegator
 //= require_self

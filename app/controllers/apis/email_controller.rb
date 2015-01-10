@@ -3,17 +3,21 @@ class Apis::EmailController < ApplicationController
     @list_id = ENV["MAILCHIMP_LIST_ID"]
     gb = Gibbon::API.new
 
-    result = gb.lists.subscribe({
+    @result = gb.lists.subscribe({
       :id => @list_id,
       :email => {:email => params[:email][:address]}
       })
 
-    if result
-      flash[:success] = "You were added to the notification list!"
+    if @result
+      @js_email_success = "Thank you! An email has been to you with instructions to complete registration."
+      @js_email_error = nil
     else
-      flash[:alert] = "An error occurred and you were not added to the list. Please try again."
+      @js_email_error = "Email not added. You may already have signed up."
     end
-    redirect_to :root
+    
+    respond_to do |format|
+      format.js
+    end
 
   end
 end

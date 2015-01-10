@@ -11,6 +11,8 @@ function ready() {
     list_el: $('#nav_list')[0]
   });
 
+  email_signup_listener_setup();
+
   //
   if ($('#slideshow').length) {
     var $slides_wrapper = $('#slideshow'),
