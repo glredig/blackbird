@@ -2,21 +2,21 @@ class MediaEventsController < ApplicationController
   before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy] 
   
   def index
-    @events = MediaEvent.all
+    @media_events = MediaEvent.all
   end
 
   def show
-    @event = MediaEvent.find(params[:id])
+    @media_event = MediaEvent.find(params[:id])
   end
 
   def new
-    @event = MediaEvent.new
+    @media_event = MediaEvent.new
   end
 
   def create
-    @event = MediaEvent.create(event_params)
+    @media_event = MediaEvent.create(event_params)
 
-    if @event.save
+    if @media_event.save
       flash[:success] = "Event added."
       redirect_to media_events_path
     else
@@ -26,7 +26,7 @@ class MediaEventsController < ApplicationController
   end
 
   def edit
-    @event = MediaEvent.find(params[:id])
+    @media_event = MediaEvent.find(params[:id])
   end
 
   def update

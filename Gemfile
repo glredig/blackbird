@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
 gem 'bcrypt', '~> 3.1.7'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -19,6 +19,7 @@ gem 'nested_form'
 gem 'sidekiq'
 gem 'font-awesome-sass'
 gem 'gibbon'
+gem 'mandrill-api'
 
 gem 'spring',        group: :development
 

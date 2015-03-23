@@ -11,9 +11,10 @@
  * file per style scope.
  *
  *= require_self
- *= require font-awesome
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import 'reset.scss';
 @import 'mixins.scss';
 @import 'global.scss';
