@@ -59,8 +59,16 @@
     width: 100%;
   }
 
+  .content_with_margin {
+    padding: 0;
+  }
+
   .pushed_content {
     margin-top: 0;
+  }
+
+  div.one_third {
+    margin-top: 2%;
   }
 
   div.two_thirds, div.one_third {
