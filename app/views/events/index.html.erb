@@ -1,12 +1,21 @@
 <div class="two_thirds">
-  <h1>upcoming events</h1>
+  <h1>events calendar</h1>
 
   <div id="calendar" data-url="<%= events_path %>"></div>
 
 
-  <%= link_to "Add event", new_event_path %>
+  <%= link_to "Add event", new_event_path if user_signed_in? %>
+  <br><br>
+  <h1>event list</h1>
   <% @events.each do |event| %>
-    <%= event.summary %>
+    <%= event.date.strftime('%m.%d.%Y') %> - <br>
+    <%= event.summary %> <br>
+    <%= event.location %> 
+    <% if user_signed_in? %>
+		<em>Pay: <%= event.pay.to_f / 100 %></em>
+    <% end %>
+    <hr />
   <% end %>
 </div>
+
 <%= render partial: "layouts/right_third" %>

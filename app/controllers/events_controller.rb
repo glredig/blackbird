@@ -2,7 +2,10 @@ class EventsController < ApplicationController
   before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.order(:date)
+    @upcoming_events = @events.upcoming
+    p "*" * 100
+    p @upcoming_events
 
     @display_events = []
 

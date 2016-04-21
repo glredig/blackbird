@@ -25,7 +25,7 @@
   <% @reviews.each do |review| %>
     <%= review.summary %><br>
   <% end %>
-  <%= link_to "View All", reviews_path %>
+  <%= link_to "View All", reviews_path, class: "view_all_link" %>
 </div>
 <div class="one_third">
   <%= render partial: "layouts/email_signup" %>

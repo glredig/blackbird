@@ -4,4 +4,6 @@ class Event < ActiveRecord::Base
   validates :location, presence: true
   validates :date, presence: true
   validates :pay, presence: true
+
+  scope :upcoming, -> { where("date >= ?", Date.today.to_datetime)}
 end
