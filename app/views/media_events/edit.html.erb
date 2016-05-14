@@ -1,7 +1,7 @@
 <h1>Edit Media</h1>
 
-<%= render partial: "form", locals: { event: @event } %>
+<%= render partial: "form", locals: { event: @media_event } %>
 
 <% if user_signed_in? %>
-  <%= link_to "Add new image", new_media_image_path(media_event_id: @event.id), class: "pseudo_button" %>
+  <%= link_to "Add new image", new_media_image_path(media_event_id: @media_event.id), class: "pseudo_button" %>
 <% end %>
