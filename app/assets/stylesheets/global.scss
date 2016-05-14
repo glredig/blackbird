@@ -87,9 +87,13 @@ ul {
   }
 
   &.blocked {
-    background-color: #222222;
     border: .1em solid #777;
     padding: 1em;
+
+    li {
+      border-bottom: .1em solid #aaaaaa;
+      margin-bottom: 1em;
+    }
   }
 }
 
@@ -124,6 +128,7 @@ ul {
   margin: 0 auto;
   position: relative;
   line-height: 1.6em;
+  padding-bottom: 5em;
 }
 
 .content_with_margin {

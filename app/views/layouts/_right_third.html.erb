@@ -22,9 +22,8 @@
 
 <div class="one_third">
   <h2>Reviews</h2>
-  <% @reviews.each do |review| %>
-    <%= review.summary %><br>
-  <% end %>
+  <div id="review_widget" data-url="<%= reviews_url %>">
+  </div>
   <%= link_to "View All", reviews_path, class: "view_all_link" %>
 </div>
 <div class="one_third">

@@ -1,0 +1,17 @@
+#review_widget {
+	position: relative;
+	height: 120px;
+
+	.quote {
+		position: absolute;
+		top: 1em;
+		left: 0;
+		width: 100%;
+		height: 105px;
+
+		.quote_name {
+			font-style: italic;
+			text-align: right;
+		}
+	}
+}

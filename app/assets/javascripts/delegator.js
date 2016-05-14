@@ -31,4 +31,10 @@ function ready() {
       event_types: ['Public', 'Private', 'Unavailable', 'Available']
     })
   }
+
+  if ($('#review_widget').length) {
+    QuoteWidget.init({
+      element: $('#review_widget')[0]
+    })
+  }
 }

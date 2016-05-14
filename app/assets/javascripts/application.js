@@ -18,4 +18,5 @@
 //= require ArcCalendar
 //= require emailSignup
 //= require delegator
+//= require QuoteWidget
 //= require_self
