@@ -10,7 +10,7 @@ class MediaImagesController < ApplicationController
   end
 
   def create
-    @media_image = MediaImage.create(media_image_params)
+    @media_image = MediaImage.create!(media_image_params)
 
     if @media_image.save
       flash[:success] = "Image added."

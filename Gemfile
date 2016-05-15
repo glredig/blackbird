@@ -26,6 +26,7 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '3.0.1'
+  gem 'pry-byebug'
 end
 
 group :test do
