@@ -1,6 +1,6 @@
 section#content {
-  background: url(image_path('blackbird_main_bkg.jpg'));
-  height: 100%;
+  background: url(image_path('background.jpg')) fixed;
+  background-size: cover;
   width: 100%;
   padding-top: 6em;
 
@@ -13,9 +13,9 @@ div.two_thirds {
   width: 62%;
   float: left;
   padding: 2%;
-  background-color: #000;
-  color: #666666;
-  box-shadow: inset 0 0 0 .1em #bbb, inset 0 0 .8em 0 #000;
+  background-color: rgba(0, 0, 0, .5);
+  color: #c2c2c2;
+  /* box-shadow: inset 0 0 0 .1em #bbb, inset 0 0 .8em 0 #000; */
   min-height: 700px;
 }
 
@@ -24,9 +24,9 @@ div.one_third {
   float: right;
   padding: 1%;
   padding-bottom: .5%;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, .5);
   color: #eeeeee;
-  box-shadow: inset 0 0 0 .1em #bbb, inset 0 0 .8em 0 #000;
+  /* box-shadow: inset 0 0 0 .1em #bbb, inset 0 0 .8em 0 #000; */
   margin-top: 0;
   margin-right: .5%;
   border-radius: .2em;

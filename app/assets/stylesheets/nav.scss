@@ -11,12 +11,14 @@ section#header {
   z-index: 2; 
 
   a {
-    color: $secondary_blue;
-    font-size: 1em;
+    color: #ccc;
+    font-size: 1.2em;
     line-height: 1em;
+    font-weight: 100;
 
     &:hover {
-      color: #888;
+      color: $secondary_blue;
+      font-weight: 200;
     }
   }
 
