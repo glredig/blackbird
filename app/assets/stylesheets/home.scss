@@ -59,12 +59,13 @@ div.one_third {
       font-weight: normal;
 
       span {
-        color: #888;
+        color: #ccc;
       }
 
       &:hover {
-        background-color: #333;
+        background-color: rgba(50, 50, 50, .5);
         text-decoration: none;
+        color: lighten($secondary_blue, 15%);
       }
     }
   }

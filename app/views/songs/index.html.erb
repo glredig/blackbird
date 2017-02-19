@@ -22,7 +22,7 @@
           <% if song.sound_clip.present? %>
             <%= link_to song.title, song.sound_clip.url %> - <%= song.artist %> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url %>
           <% else %>
-            <%= song.title %> - <%= song.artist %>
+            <%= song.title %> - <span><%= song.artist %></span>
           <% end %>
         </li>
       <% end %>

@@ -59,11 +59,14 @@ h1, h2, h3, h4 {
   font-variant: small-caps;
 }
 
+@import 'mixins';
+
 h1 {
   font-size: 3em;
   line-height: 1em;
   margin-bottom: .3em;
   text-shadow: .04em .04em #000;
+  font-weight: 100;
 }
 
 p {
@@ -93,6 +96,10 @@ ul {
     li {
       border-bottom: .1em solid #aaaaaa;
       margin-bottom: 1em;
+
+      span {
+        color: lighten($secondary_blue, 10%);
+      }
     }
   }
 }
@@ -138,11 +145,13 @@ ul {
 .pushed_content {
   margin-top: 3em;
   padding:  0 1em 1em 1em;
+
+  span {
+    color: $secondary_blue;
+  }
 }
 
 .translucent {
-  background-color: rgba(64, 73, 95, .3);
-  border: .1em solid rgba(70, 83, 105, .3);
   box-shadow: 0 0 .1em .1em rgba(30, 30, 30, .3);
 }
 
