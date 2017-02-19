@@ -1,8 +1,8 @@
 <div class="one_third">
   <h2>Events</h2>
-  <% if @events.present? %>
+  <% if @upcoming_events.present? %>
     <ul>
-      <% @events.each do |event| %>
+      <% @upcoming_events.each do |event| %>
         <li>
           <%= link_to event_path(event) do %>
             <span>

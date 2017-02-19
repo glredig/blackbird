@@ -3,4 +3,12 @@ class Review < ActiveRecord::Base
   validates :date, presence: true
   validates :summary, presence: true
   validates :event, presence: true
+
+  def anonymized_name
+  	if last_name.present?
+  		"#{name} #{last_name[0]}."
+  	else
+  		name
+  	end
+  end
 end

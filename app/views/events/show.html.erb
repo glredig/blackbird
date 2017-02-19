@@ -1,1 +1,16 @@
-<h1>Event</h1>
+<div class="two_thirds">
+  <div class="pushed_content">
+    <h1>event</h1>
+
+    <div class="blocked">
+    	<h3><%= @event.date.strftime('%m.%d.%Y') %></h3>
+    	<p><%= @event.summary %></p>
+    	<p><%= @event.location %></p>
+    </div>
+	
+	<br>
+    <%= link_to "View all", events_path %>
+  </div>
+</div>
+
+<%= render partial: "layouts/right_third" %>

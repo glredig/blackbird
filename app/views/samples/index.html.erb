@@ -2,9 +2,6 @@
   <div class="pushed_content">
 	  <h1>samples</h1>
 
-	  Here are some samples
-
-	  <h2>Audio</h2>
 	  <% @audio_samples.each do |sample| %>
 	    <%= link_to sample.sound_clip.url do %>
 	      <%= sample.title %> - <%= sample.artist %> <i class='fa fa-volume-up'></i>

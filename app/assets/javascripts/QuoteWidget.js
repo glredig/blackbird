@@ -119,7 +119,7 @@ var QuoteWidget = (function() {
 			this.node.innerText = '"' + this.summary + '"';
 			name = document.createElement('div');
 			name.className = 'quote_name';
-			name.innerText = '- ' + this.name;
+			name.innerText = this.name;
 			this.node.appendChild(name);
 			this.parent_node.appendChild(this.node);
     	},

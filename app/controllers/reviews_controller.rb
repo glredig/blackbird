@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:name, :date, :summary, :event)
+    params.require(:review).permit(:name, :last_name, :date, :summary, :event)
   end
 
   def check_admin

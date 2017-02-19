@@ -1,8 +1,48 @@
-input[type=email] {
-  border-radius: .3em;
-  padding: 0 .2em;
+input[type=email],
+input[type=text] {
+  padding: 0 .4em;
   border: none;
   height: 2.5em;
   margin: 1em;
   font-size: 1em;
+  width: 60%;
+  color: #666666;
+}
+
+a.pseudo_button, input[type=submit] {
+  cursor: pointer;
+  border: none;
+  background-color: $secondary_blue;
+  padding: .5em;
+  font-weight: normal;
+  font-size: 1em;
+  color: #eee;
+  height: 2.5em;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    text-decoration: none;
+    background-color: lighten( $secondary_blue, 20% );
+  }
+}
+
+.contact_table {
+	width: 80%;
+
+	input[type=email],
+	input[type=text] {
+		margin-left: 0;
+		width: 90%;
+	}
+
+	textarea {
+		margin-top: 1em;
+		width: 90%;
+		padding: .4em;
+		min-height: 6em;
+		color: #666666;
+		font-size: 1em;
+	}
+
+
 }

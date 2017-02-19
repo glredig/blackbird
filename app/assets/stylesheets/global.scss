@@ -38,23 +38,6 @@ a {
   }
 }
 
-a.pseudo_button, input[type=submit] {
-  cursor: pointer;
-  border: none;
-  background-color: $secondary_blue;
-  border-radius: .3em;
-  box-shadow: .1em .1em 0 0 #333;
-  padding: .5em;
-  font-weight: normal;
-  font-size: 1em;
-  color: #eee;
-
-  &:hover {
-    text-decoration: none;
-    background-color: lighten( $secondary_blue, 10% );
-  }
-}
-
 h1, h2, h3, h4 {
   font-variant: small-caps;
 }
@@ -67,6 +50,10 @@ h1 {
   margin-bottom: .3em;
   text-shadow: .04em .04em #000;
   font-weight: 100;
+}
+
+h3 {
+  color: $secondary_blue;
 }
 
 p {

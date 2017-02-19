@@ -3,10 +3,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.order(:date)
-    @upcoming_events = @events.upcoming
-    p "*" * 100
-    p @upcoming_events
-
     @display_events = []
 
     @events.each do |event|

@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy] 
 
   def index
-    @songs = Song.all.order(:artist)
+    @songs = Song.all.order(:title)
   end
 
   def new
