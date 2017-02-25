@@ -20,8 +20,19 @@ gem 'sidekiq'
 gem 'font-awesome-sass'
 gem 'gibbon'
 gem 'mandrill-api'
+gem 'figaro'
+gem 'puma'
 
-gem 'spring',        group: :development
+
+
+group :development do
+	gem 'spring'
+	gem 'capistrano'
+	gem 'capistrano3-puma'
+	gem 'capistrano-rails', require: false
+	gem 'capistrano-bundler', require: false
+	gem 'capistrano-rbenv', github: "capistrano/rbenv"
+end
 
 group :development, :test do
   gem 'sqlite3'
