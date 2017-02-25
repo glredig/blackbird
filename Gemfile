@@ -28,7 +28,7 @@ gem 'puma'
 group :development do
 	gem 'spring'
 	gem 'capistrano'
-	gem 'capistrano3-puma'
+	gem 'capistrano3-puma', :git => 'git@github.com:seuros/capistrano-puma.git', :ref => 'c1d705d',  require: false
 	gem 'capistrano-rails', require: false
 	gem 'capistrano-bundler', require: false
 	gem 'capistrano-rbenv', github: "capistrano/rbenv"
