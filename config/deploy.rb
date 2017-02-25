@@ -5,16 +5,16 @@ set :application, "blackbirdband"
 set :repo_url, "git@github.com:glredig/blackbird.git"
 
 set :deploy_to, "/home/deploy/blackbird"
+set :location, "ec2-13-112-228-85.ap-northeast-1.compute.amazonaws.com"
 
 set :pty, true
 
-append :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_files, %w{config/database.yml config/application.yml}
 
-append :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 set :keep_releases, 5
-set :rvm_type, :user
-set :rvm_ruby_version, 'jruby-i.7.19'
+set :rbenv_path, '/home/deploy/.rbenv'
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
