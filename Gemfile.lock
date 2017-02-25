@@ -7,13 +7,13 @@ GIT
       sshkit (~> 1.3)
 
 GIT
-  remote: git@github.com:seuros/capistrano-puma.git
-  revision: c1d705db52a99f5222503038865d8c6c0a23530e
-  ref: c1d705d
+  remote: git://github.com/seuros/capistrano-puma.git
+  revision: e18b30c18aceceed003e8007c268125317a17a9d
   specs:
-    capistrano3-puma (1.2.2)
-      capistrano (~> 3.0)
-      puma (>= 2.6)
+    capistrano3-puma (2.0.0)
+      capistrano (~> 3.5)
+      capistrano-bundler
+      puma (~> 3.4)
 
 GEM
   remote: https://rubygems.org/
