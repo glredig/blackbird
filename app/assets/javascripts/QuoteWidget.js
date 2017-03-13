@@ -98,7 +98,7 @@ var QuoteWidget = (function() {
     }
 
     function Quote(config) {
-    	this.summary = config.text;
+    	this.summary = config.text.split('').slice(0, 100).join('');
     	this.name = config.name || "Anonymous";
     	this.parent_node = config.parent;
     	this.position = config.position;
