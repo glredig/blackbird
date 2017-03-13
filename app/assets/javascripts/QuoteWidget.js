@@ -98,7 +98,7 @@ var QuoteWidget = (function() {
     }
 
     function Quote(config) {
-    	this.summary = config.text.split('').slice(0, 100).join('');
+    	this.summary = config.text.split('').slice(0, 120).join('');
     	this.name = config.name || "Anonymous";
     	this.parent_node = config.parent;
     	this.position = config.position;
@@ -116,7 +116,7 @@ var QuoteWidget = (function() {
     		var name;
     		this.node = document.createElement('div');
 			this.node.className = 'quote';
-			this.node.innerText = '"' + this.summary + '"';
+			this.node.innerText = '"' + this.summary + '..."';
 			name = document.createElement('div');
 			name.className = 'quote_name';
 			name.innerText = this.name;
