@@ -4,7 +4,11 @@
   <%= link_to "New Slide", new_slide_path %>
 <% end %>
 
-<% @slides.each do |slide| %>
-  <%= image_tag slide.slide_image.thumb.url %>    
-  <%= link_to "Edit Slide", edit_slide_path(slide) %>
-<% end %>
+<ul>
+	<% @slides.each do |slide| %>
+	  <li>
+	  	<%= image_tag slide.slide_image.thumb.url %>    
+	  	<%= link_to "Edit Slide", edit_slide_path(slide) %>
+	  </li>
+	<% end %>
+</ul>
