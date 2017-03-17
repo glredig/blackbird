@@ -1,3 +1,11 @@
 <h1>Edit</h1>
 
-<%=  render partial: "form" %>
+<%= simple_form_for @event do |form| %>
+  <%= form.input :date %>
+  <%= form.input :accessible %>
+  <%= form.input :location %>
+  <%= form.input :pay, as: :integer, hint: "In pennies, to avoid decimals." %>
+  <%= form.input :summary, as: :text %>
+
+  <%= form.button :submit %>
+<% end %>

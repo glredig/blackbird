@@ -11,6 +11,13 @@
     <ul class="blocked">
     <% @events.each do |event| %>
       <li>
+        <% if user_signed_in? %>
+            <div class="pos_fr">
+              <%= link_to edit_event_path(event) do %>
+                <%= icon('edit', '', class: "pos_fr strong") %>
+              <% end %>
+            </div>
+          <% end %>
         <span><%= event.date.strftime('%m.%d.%Y') %></span><br>
         <%= event.summary %> <br>
         <%= event.location %> 
