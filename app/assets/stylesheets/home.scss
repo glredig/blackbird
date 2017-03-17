@@ -22,6 +22,10 @@ div.two_thirds {
   a:not(.pseudo_button) {
     color: lighten($secondary_blue, 15%);
   }
+
+  .bio_image {
+    max-width: 35%;
+  }
 }
 
 div.one_third {

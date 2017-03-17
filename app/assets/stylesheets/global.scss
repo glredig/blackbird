@@ -50,6 +50,13 @@ h1 {
   margin-bottom: .3em;
   text-shadow: .04em .04em #000;
   font-weight: 100;
+
+  a.pseudo_button {
+    font-size: .4em;
+    vertical-align: middle;
+    font-variant: normal;
+    text-shadow: none;
+  }
 }
 
 h2 span {

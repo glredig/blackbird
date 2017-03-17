@@ -19,12 +19,13 @@
       </h2> 
 
       <% if bio.bio_image.present? %>
-        <%= image_tag bio.bio_image.full.url, class: "pos_fr" %>
+        <%= image_tag bio.bio_image.full.url, class: "pos_fr bio_image" %>
       <% end %>
       <p>
         <%= bio.summary %>
       </p>
       <hr />
+      <div class="clear"></div>
     <% end %>
   </div>
 </div>
