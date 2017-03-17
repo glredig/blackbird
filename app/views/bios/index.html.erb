@@ -3,17 +3,20 @@
     <h1>bios</h2>
 
     <% if user_signed_in? %>
-      <%= link_to "New Bio", new_bio_path %>
+      <%= link_to "New Bio", new_bio_path, class: "pseudo_button" %>
     <% end %>
     <br>
 
     <% @bios.each do |bio| %>
-      <h2><%= bio.name %> <span>(<%= bio.instruments %>)</span></h2> 
-      <% if user_signed_in? %>
-        <%= link_to "Edit", edit_bio_path(bio) %>
-      <% end %>
+      <h2>
+        <%= bio.name %> <span>(<%= bio.instruments %>)</span>
+        <% if user_signed_in? %>
+          <%= link_to edit_bio_path(bio) do %>
+            <%= icon('edit', '', class: "pos_fr strong") %>
+          <% end %>
+        <% end %>
+      </h2> 
 
-      <br>
       <% if bio.bio_image.present? %>
         <%= image_tag bio.bio_image.thumb.url, class: "pos_fr" %>
       <% end %>
