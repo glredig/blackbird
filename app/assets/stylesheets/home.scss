@@ -18,6 +18,7 @@ div.two_thirds {
   color: #c2c2c2;
   /* box-shadow: inset 0 0 0 .1em #bbb, inset 0 0 .8em 0 #000; */
   min-height: 700px;
+  overflow: auto;
 
   a:not(.pseudo_button) {
     color: lighten($secondary_blue, 15%);
@@ -39,6 +40,7 @@ div.one_third {
   margin-top: 0;
   margin-right: .5%;
   border-radius: .2em;
+  overflow: auto;
 
   a {
     color: #40495f;

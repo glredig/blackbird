@@ -9,23 +9,24 @@
     <br>
 
     <% @bios.each do |bio| %>
-      <h2>
-        <%= bio.name %> <span>(<%= bio.instruments %>)</span>
-        <% if user_signed_in? %>
-          <%= link_to edit_bio_path(bio) do %>
-            <%= icon('edit', '', class: "pos_fr strong") %>
+      <div class="pseudo_li border bottom">
+        <h2>
+          <%= bio.name %> <span>(<%= bio.instruments %>)</span>
+          <% if user_signed_in? %>
+            <%= link_to edit_bio_path(bio) do %>
+              <%= icon('edit', '', class: "pos_fr strong") %>
+            <% end %>
           <% end %>
-        <% end %>
-      </h2> 
+        </h2> 
 
-      <% if bio.bio_image.present? %>
-        <%= image_tag bio.bio_image.full.url, class: "pos_fr bio_image" %>
-      <% end %>
-      <p>
-        <%= bio.summary %>
-      </p>
-      <hr />
-      <div class="clear"></div>
+        <% if bio.bio_image.present? %>
+          <%= image_tag bio.bio_image.full.url, class: "pos_fr bio_image" %>
+        <% end %>
+        <p>
+          <%= bio.summary %>
+        </p>
+        <hr />
+      </div>
     <% end %>
   </div>
 </div>

@@ -91,6 +91,7 @@ ul {
   &.blocked {
     border: .1em solid #777;
     padding: 1em;
+    background: rgba(0, 0, 0, .5);
 
     li {
       border-bottom: .1em solid #aaaaaa;
@@ -234,5 +235,15 @@ ul {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+.pseudo_li {
+  overflow: auto;
+
+  &.border {
+    &.bottom {
+      border-bottom: .1em solid #eee;
+    }
   }
 }
