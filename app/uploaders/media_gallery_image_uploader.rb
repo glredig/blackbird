@@ -35,6 +35,10 @@ class MediaGalleryImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [150, 100]
   end
 
+  version :mobile do
+    process :resize_to_fill => [600, 400]
+  end
+
   version :full do
     process :resize_to_fit => [1200, 800]
   end

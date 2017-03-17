@@ -32,6 +32,10 @@ class BioImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  version :full do
+    process :resize_to_fit => [450, 334]
+  end
+
   version :thumb do
     process :resize_to_fit => [225, 167]
   end
