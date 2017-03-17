@@ -1,9 +1,11 @@
 <div class="two_thirds">
   <div class="pushed_content translucent">
-    <h1>what people are saying</h2>
-    <% if user_signed_in? %>
-      <%= link_to "Add new review", new_review_path, class: "pseudo_button" %>
-    <% end %>
+    <h1>
+      what people are saying
+      <% if user_signed_in? %>
+        <%= link_to "Add new review", new_review_path, class: "pseudo_button" %>
+      <% end %>
+    </h1>
 
     <p>
       Thank you to everyone who took the time to write a review of the band. We really appreciate your kind words!

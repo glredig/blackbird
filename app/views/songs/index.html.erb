@@ -1,9 +1,11 @@
 <div class="two_thirds">  
   <div class="pushed_content translucent">
-    <h1>song list</h2>
-    <% if user_signed_in? %>
-      <%= link_to "Add new song", new_song_path, class: "pseudo_button" %>
-    <% end %>
+    <h1>
+      song list
+      <% if user_signed_in? %>
+        <%= link_to "Add new song", new_song_path, class: "pseudo_button" %>
+      <% end %>
+    </h1>
 
     <p>
       Below is a list of songs that Blackbird has performed at previous events.

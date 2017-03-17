@@ -1,10 +1,11 @@
 <div class="two_thirds">
   <div class="pushed_content">
-    <h1>bios</h2>
-
-    <% if user_signed_in? %>
-      <%= link_to "New Bio", new_bio_path, class: "pseudo_button" %>
-    <% end %>
+    <h1>
+      bios
+      <% if user_signed_in? %>
+        <%= link_to "New Bio", new_bio_path, class: "pseudo_button" %>
+      <% end %>
+    </h1>
     <br>
 
     <% @bios.each do |bio| %>
@@ -18,12 +19,12 @@
       </h2> 
 
       <% if bio.bio_image.present? %>
-        <%= image_tag bio.bio_image.thumb.url, class: "pos_fr" %>
+        <%= image_tag bio.bio_image.full.url, class: "pos_fr" %>
       <% end %>
       <p>
         <%= bio.summary %>
       </p>
-      
+      <hr />
     <% end %>
   </div>
 </div>

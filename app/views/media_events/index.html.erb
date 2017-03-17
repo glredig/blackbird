@@ -1,11 +1,12 @@
 <div class="two_thirds">
   <div class="pushed_content">
-    <h1>media gallery</h1>
+    <h1>
+      media gallery
+      <% if user_signed_in? %>
+        <%= link_to "New Event", new_media_event_path, class: "pseudo_button" %>
+      <% end %>
+    </h1>
     Please click on the thumbnails to view the larger version.
-
-    <% if user_signed_in? %>
-      <%= link_to "New Event", new_media_event_path %>
-    <% end %>
 
     <ul class="blocked gallery">
     <% @media_events.all.each do |media_event| %>
