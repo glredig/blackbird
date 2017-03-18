@@ -51,10 +51,10 @@ h1 {
   text-shadow: .04em .04em #000;
   font-weight: 100;
 
-  a.pseudo_button {
+  a {
     font-size: .4em;
-    vertical-align: middle;
     font-variant: normal;
+    vertical-align: middle;
     text-shadow: none;
   }
 }
@@ -240,6 +240,7 @@ ul {
 
 .pseudo_li {
   overflow: auto;
+  padding-bottom: 1em;
 
   &.border {
     &.bottom {

@@ -57,6 +57,10 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def archive
+    @events = Event.all
+  end
+
   private
 
   def event_params

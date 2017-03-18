@@ -18,4 +18,5 @@
 //= require emailSignup
 //= require delegator
 //= require QuoteWidget
+//= require arc-swell.min
 //= require_self

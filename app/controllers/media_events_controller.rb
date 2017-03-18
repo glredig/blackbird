@@ -1,5 +1,6 @@
 class MediaEventsController < ApplicationController
   before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy] 
+  skip_before_action :verify_authenticity_token, only: 'show'
   
   def index
     @media_events = MediaEvent.all
@@ -7,6 +8,17 @@ class MediaEventsController < ApplicationController
 
   def show
     @media_event = MediaEvent.find(params[:id])
+
+    respond_to do |format|
+      format.js {
+        images = @media_event.media_images.map{|x| {src: x.media_gallery_image.full.url, text: x.summary}}
+        render json: {
+          "count": images.count,
+          "images": images
+        }
+      }
+      format.html
+    end
   end
 
   def new
