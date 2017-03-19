@@ -16,11 +16,11 @@ var NavPopup = (function() {
       }
     });
 
-    $(window).resize(function() {
-      if ($(width_control_el).width() > resolution_switch) {
-        $(nav_list).show();
-      }
-    });
+    // $(window).resize(function() {
+    //   if ($(width_control_el).width() > resolution_switch) {
+    //     $(nav_list).show();
+    //   }
+    // });
   }
 
   function resetVisibility(list_el) {
