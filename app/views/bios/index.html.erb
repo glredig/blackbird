@@ -23,7 +23,7 @@
           <%= image_tag bio.bio_image.full.url, class: "pos_fr bio_image" %>
         <% end %>
         <p>
-          <%= bio.summary %>
+          <%= bio.summary.html_safe %>
         </p>
       </div>
     <% end %>

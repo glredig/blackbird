@@ -6,4 +6,6 @@ class Event < ActiveRecord::Base
   validates :pay, presence: true
 
   scope :upcoming, -> { where("date >= ?", Date.today.to_datetime)}
+
+  ACCESSIBLE = ['Public', 'Private']
 end

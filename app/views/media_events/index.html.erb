@@ -8,7 +8,7 @@
     </h1>
     Please click on the thumbnails to view the larger version.
 
-    <ul class="blocked gallery">
+    <ul class="gallery">
     <% @media_events.all.each do |media_event| %>
       <li>
         <%= media_event.event_date.strftime('%m/%d/%Y') %> - <%= media_event.summary %>

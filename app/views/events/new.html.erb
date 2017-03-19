@@ -2,7 +2,7 @@
 
 <%= simple_form_for @event do |form| %>
   <%= form.input :date %>
-  <%= form.input :accessible %>
+  <%= form.input :accessible, collection: Event::ACCESSIBLE, include_blank: false %>
   <%= form.input :location %>
   <%= form.input :pay, as: :integer, hint: "In pennies, to avoid decimals." %>
   <%= form.input :summary, as: :text %>
