@@ -51,7 +51,8 @@ h1 {
   text-shadow: .04em .04em #000;
   font-weight: 100;
 
-  a {
+  a,
+  a.pseudo_button {
     font-size: .4em;
     font-variant: normal;
     vertical-align: middle;
