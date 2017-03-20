@@ -11,7 +11,15 @@ class MediaEventsController < ApplicationController
 
     respond_to do |format|
       format.js {
-        images = @media_event.media_images.map{|x| {src: x.media_gallery_image.full.url, text: x.summary}}
+        images = @media_event.media_images.map do |x| 
+          {
+            src: {
+              thumb: x.media_gallery_image.thumb.url,
+              full: x.media_gallery_image.full.url
+            }, 
+            text: x.summary
+          }
+        end
         render json: {
           "count": images.count,
           "images": images
