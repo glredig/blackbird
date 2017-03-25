@@ -11,7 +11,7 @@
     cursor: pointer;
   }
 
-  #nav_list {
+  ul#nav_list {
     display: none;
     position: absolute;
     width: 60%;
@@ -35,17 +35,21 @@
         line-height: 3.5em;
         display: block;
         border-bottom: .05em solid #888;
-        color: #666;
+        color: #444;
         font-family: helvetica, arial, sans-serif;
         text-decoration: none;
         padding-left: 2em;
         font-size: .8em;
         font-variant: normal;
+        font-weight: bold;
 
         &:hover {
-          background-color: #888;
-          color: #666;
+          background-color: #999;
+          color: #444;
           font-family: helvetica, arial, sans-serif;
+          font-size: .8em;
+          font-variant: normal;
+          font-weight: bold;
         }
       }
     }
