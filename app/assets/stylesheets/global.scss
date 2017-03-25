@@ -102,6 +102,16 @@ ul {
         color: lighten($secondary_blue, 10%);
       }
     }
+
+    &.songs {
+      a:not(.pos_fr) {
+        color: #c2c2c2;
+      }
+
+      .fa-volume-up {
+        margin-left: 1.5em;
+      }
+    }
   }
 }
 

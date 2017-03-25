@@ -11,7 +11,7 @@
       Below is a list of songs that Blackbird has performed at previous events.
     </p>
 
-    <ul class="blocked">
+    <ul class="songs blocked">
       <% @songs.each do |song| %>
         <li>
           <% if user_signed_in? %>
@@ -22,7 +22,7 @@
             </div>
           <% end %>
           <% if song.sound_clip.present? %>
-            <%= link_to song.title, song.sound_clip.url %> - <%= song.artist %> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url %>
+            <%= link_to song.title, song.sound_clip.url, target: '_blank' %> - <span><%= song.artist %></span> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url, target: '_blank' %>
           <% else %>
             <%= song.title %> - <span><%= song.artist %></span>
           <% end %>
