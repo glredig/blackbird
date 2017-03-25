@@ -5,13 +5,15 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(params[:contact])
-    @contact.request = request
-    if @contact.deliver
-      flash.now[:notice] = 'Thank you for your message. We will contact you soon!'
-      redirect_to root_path
-    else
-      flash.now[:alert] = 'Cannot send message.'
-      render :new
+    
+    respond_to do |format|
+      format.html do
+        if @contact.save
+          ContactMailer.contact_email(params[:contact][:name], params[:contact][:email], params[:contact][:message]).deliver
+          flash[:notice] = "Thank you for contacting the band!"
+          redirect_to root_path
+        end
+      end
     end
   end
 end
