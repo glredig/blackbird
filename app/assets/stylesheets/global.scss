@@ -95,8 +95,11 @@ ul {
     background: rgba(0, 0, 0, .5);
 
     li {
-      border-bottom: .1em solid #aaaaaa;
+      // border-bottom: .1em solid #aaaaaa;
       margin-bottom: 1em;
+      background: #222;
+      border-radius: .5em;
+      padding: 1em;
 
       span {
         color: lighten($secondary_blue, 10%);
