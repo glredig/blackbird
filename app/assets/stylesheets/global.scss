@@ -254,11 +254,21 @@ ul {
 
 .pseudo_li {
   overflow: auto;
-  padding-bottom: 1em;
+  padding: 1em;
+  background: #222;
+  border-radius: .8em;
 
   &.border {
     &.bottom {
       border-bottom: .1em solid #eee;
     }
+  }
+
+  h2 {
+    margin-bottom: .5em;
+  }
+
+  p {
+    margin-top: 0;
   }
 }

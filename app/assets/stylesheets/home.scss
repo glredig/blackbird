@@ -26,6 +26,8 @@ div.two_thirds {
 
   .bio_image {
     max-width: 35%;
+    margin-left: 1em;
+    box-shadow: 0 0 .2em .1em #111, 0 0 .1em .1em #ddd inset;
   }
 }
 

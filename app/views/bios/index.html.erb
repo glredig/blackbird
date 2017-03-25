@@ -9,7 +9,7 @@
     <br>
 
     <% @bios.each do |bio| %>
-      <div class="pseudo_li border bottom">
+      <div class="pseudo_li">
         <h2>
           <%= bio.name %> <span>(<%= bio.instruments %>)</span>
           <% if user_signed_in? %>
