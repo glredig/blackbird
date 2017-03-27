@@ -50,9 +50,21 @@ class MediaEventsController < ApplicationController
   end
 
   def update
+    @media_event = MediaEvent.find(params[:id])
+
+    if @media_event.update_attributes(event_params)
+      flash[:success] = "Changes saved!"
+      redirect_to media_events_path
+    else
+      flash[:alert] = "Changes weren't saved."
+      redirect_to edit_media_event_path(@media_event)
+    end
   end
 
   def destroy
+    MediaEvent.find(params[:id]).destroy
+    flash[:success] = "Event deleted."
+    redirect_to media_events_path
   end
 
   private

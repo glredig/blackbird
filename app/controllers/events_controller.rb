@@ -47,7 +47,7 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:alert] = "Changes weren't saved."
-      redirect_to edit_event_path(event)
+      redirect_to edit_event_path(@event)
     end
   end
 
