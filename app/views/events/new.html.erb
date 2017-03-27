@@ -1,7 +1,8 @@
 <h1>New Event</h1>
 
 <%= simple_form_for @event do |form| %>
-  <%= form.input :date %>
+  <%= form.input :date, start_year: Time.now.year - 15,
+  end_year: Time.now.year %>
   <%= form.input :accessible, collection: Event::ACCESSIBLE, include_blank: false %>
   <%= form.input :location %>
   <%= form.input :pay, as: :integer, hint: "In pennies, to avoid decimals." %>

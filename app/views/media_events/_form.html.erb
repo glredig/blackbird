@@ -1,6 +1,7 @@
 <%= simple_form_for event do |form| %>
   <%= form.input :summary %>
-  <%= form.input :event_date %>
+  <%= form.input :event_date, start_year: Time.now.year - 15,
+  end_year: Time.now.year %>
   
   <br><br>
   <%= form.button :submit %>

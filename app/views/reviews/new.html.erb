@@ -3,7 +3,7 @@
 <%= simple_form_for @review do |form| %>
   <%= form.input :name %>
   <%= form.input :last_name %>
-  <%= form.input :date, start_year: Time.now.year - 10,
+  <%= form.input :date, start_year: Time.now.year - 15,
   end_year: Time.now.year %>
   <%= form.input :event %>
   <%= form.input :summary, as: :text %>
