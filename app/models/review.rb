@@ -4,6 +4,8 @@ class Review < ActiveRecord::Base
   validates :summary, presence: true
   validates :event, presence: true
 
+  default_scope { order(date: :desc) }
+
   def anonymized_name
   	if last_name.present?
   		"#{name} #{last_name[0]}."
