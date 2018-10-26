@@ -1,0 +1,12 @@
+<li>
+  <% if song.sound_clip.present? %>
+    <%= link_to song.title, song.sound_clip.url, target: '_blank' %> - <span><%= song.artist %></span> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url, target: '_blank' %>
+  <% else %>
+    <%= song.title %> - <span><%= song.artist %></span>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to edit_song_path(song) do %>
+      <%= icon('edit', '', class: "strong") %>
+    <% end %>
+  <% end %>
+</li>

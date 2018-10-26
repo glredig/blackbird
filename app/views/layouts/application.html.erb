@@ -11,21 +11,25 @@
 <body>
     <section id="header">
       <div class="centered_content">
-        <%= link_to root_path, id: "home_logo_link" do %>
-          <%= image_tag 'blackbird_logo_grunge.png', class: "desktop_show" %>
-          <%= image_tag 'mobile_logo1.png', class: "mobile_show" %>
-        <% end %>
+        <div class="home_links">
+          <%= link_to root_path, id: "home_logo_link" do %>
+            <%= image_tag 'blackbird_logo_grunge.png', class: "desktop_show" %>
+            <%= image_tag 'mobile_logo1.png', class: "mobile_show" %>
+          <% end %>
+        </div>
 
-        <i id="nav_trigger" class="fa fa-bars mobile_show"></i>
+        <div class="nav_links">
+          <i id="nav_trigger" class="fa fa-bars mobile_show"></i>
 
-        <ul id="nav_list">
-          <li><%= link_to "bios", bios_path %></li>
-          <li><%= link_to "songlist", songs_path %></li>
-          <li><%= link_to "calendar", events_path %></li>
-          <li><%= link_to "gallery", media_events_path %></li>
-          <li><%= link_to "reviews", reviews_path %></li>
-          <li><%= link_to "contact us", contacts_path %></li>
-        </ul>
+          <ul id="nav_list">
+            <li><%= link_to "bios", bios_path %></li>
+            <li><%= link_to "songlist", songs_path %></li>
+            <li><%= link_to "calendar", events_path %></li>
+            <li><%= link_to "gallery", media_events_path %></li>
+            <li><%= link_to "reviews", reviews_path %></li>
+            <li><%= link_to "contact us", contacts_path %></li>
+          </ul>
+        </div>
       </div>
     </section>
     <div class="clear"></div>

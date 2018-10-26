@@ -8,4 +8,8 @@ class Slide < ActiveRecord::Base
   default_scope { order('position') }
   scope :published, -> { where(publish: true) }
 
+  LABEL_PLACEMENTS = [
+  	'Top',
+  	'Bottom'
+  ]
 end

@@ -15,7 +15,12 @@ class SlidesController < ApplicationController
   end
 
   def create
+    last_position = Slide.all.last
     @slide = Slide.create(slide_params)
+
+    unless slide_params[:label_placement].present?
+      @slide.update_attributes(position: last_position + 1)
+    end
 
     if @slide.save
       flash[:success] = "Slide added."

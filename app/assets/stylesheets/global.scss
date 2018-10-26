@@ -90,16 +90,18 @@ ul {
   }
 
   &.blocked {
-    border: .1em solid #777;
-    padding: 1em;
+    border-top: 1px solid #cce;
+    padding: 1em 0.5em;
+    margin-top: 1em;
     background: rgba(0, 0, 0, .5);
 
     li {
       // border-bottom: .1em solid #aaaaaa;
       margin-bottom: 1em;
-      background: #222;
-      border-radius: .5em;
-      padding: 1em;
+      background: rgba(0, 0, 0, .5);
+      border-radius: .2em;
+      border-bottom: 1px solid #224;
+      padding: .5em;
 
       span {
         color: lighten($secondary_blue, 10%);
@@ -107,6 +109,11 @@ ul {
     }
 
     &.songs {
+      border: none;
+      border-top: 1px solid #cce;
+      padding: 1em 0;
+      margin-top: 1em;
+
       a:not(.pos_fr) {
         color: #c2c2c2;
       }
@@ -117,7 +124,10 @@ ul {
 
       li {
         padding: .1em 1em;
-        margin-bottom: .3em;
+        margin-bottom: 0;
+        border-radius: 0;
+        background: none;
+        line-height: 1.2em;
       }
     }
   }
@@ -155,10 +165,27 @@ ul {
   position: relative;
   line-height: 1.8em;
   padding-bottom: 5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#header .centered_content {
+  justify-content: space-between;
+}
+
+.home_links {
+  width: 48%;
+}
+
+.nav_links {
+  width: 50%;
 }
 
 .content_with_margin {
   padding: 0 1%;
+  display: flex;
+  width: 100%;
 }
 
 .pushed_content {
@@ -260,8 +287,8 @@ ul {
 .pseudo_li {
   overflow: auto;
   padding: 1em;
-  background: #222;
-  border-radius: .8em;
+  background: rgba(0, 0, 0, .5);
+  border-radius: .2em;
   margin-bottom: 1em;
 
   &.border {

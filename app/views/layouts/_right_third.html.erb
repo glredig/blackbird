@@ -1,32 +1,33 @@
 <div class="one_third">
-  <h2>Events</h2>
-  <% if @upcoming_events.present? %>
-    <ul>
-      <% @upcoming_events.each do |event| %>
-        <li>
-          <%= link_to event_path(event) do %>
-            <span>
-              <%= event.date.strftime('%m.%d.%Y') %>
-            </span> - 
-            <%= event.summary %><br>
+  <div>
+    <h2>Events</h2>
+    <% if @upcoming_events.present? %>
+      <ul>
+        <% @upcoming_events.each do |event| %>
+          <li>
+            <%= link_to event_path(event) do %>
+              <span>
+                <%= event.date.strftime('%m.%d.%Y') %>
+              </span> - 
+              <%= event.summary %><br>
 
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to "View All", events_path, class: "view_all_link" %>
-  <% else %>
-    <p>No events scheduled.</p>
-  <% end %>
-</div>
-
-<div class="one_third">
-  <h2>Reviews</h2>
-  <div id="review_widget" data-url="<%= reviews_url %>">
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "View All", events_path, class: "view_all_link" %>
+    <% else %>
+      <p>No events scheduled.</p>
+    <% end %>
   </div>
-  <%= link_to "View All", reviews_path, class: "view_all_link" %>
+
+  <div>
+    <h2>Reviews</h2>
+    <div id="review_widget" data-url="<%= reviews_url %>">
+    </div>
+    <%= link_to "View All", reviews_path, class: "view_all_link" %>
+  </div>
+  <div>
+    <%= render partial: "layouts/email_signup" %>
+  </div>
 </div>
-<div class="one_third">
-  <%= render partial: "layouts/email_signup" %>
-</div>
-<div class="clear"></div>

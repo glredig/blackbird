@@ -8,26 +8,15 @@
     </h1>
 
     <p>
+      Although the band mostly plays classic rock, they enjoy many types of music and they continue to add to their catalogue.
+      <br>
+    </p>
+    <p>
       Below is a list of songs that Blackbird has performed at previous events.
     </p>
 
-    <ul class="songs blocked">
-      <% @songs.each do |song| %>
-        <li>
-          <% if user_signed_in? %>
-            <div class="pos_fr">
-              <%= link_to edit_song_path(song) do %>
-                <%= icon('edit', '', class: "pos_fr strong") %>
-              <% end %>
-            </div>
-          <% end %>
-          <% if song.sound_clip.present? %>
-            <%= link_to song.title, song.sound_clip.url, target: '_blank' %> - <span><%= song.artist %></span> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url, target: '_blank' %>
-          <% else %>
-            <%= song.title %> - <span><%= song.artist %></span>
-          <% end %>
-        </li>
-      <% end %>
+    <ul class="songs blocked" style='border-top: 1px solid #ddd; margin-top: 1em; padding-top: 1em;'>
+      <%= render partial: 'songs/song', collection: @songs %>
     </ul>
   </div>
 </div>
