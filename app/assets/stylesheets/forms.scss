@@ -7,6 +7,7 @@ input[type=text] {
   font-size: 1em;
   width: 60%;
   color: #666666;
+  background-color: #dddddd;
 }
 
 a.pseudo_button, input[type=submit] {
@@ -42,7 +43,10 @@ a.pseudo_button, input[type=submit] {
 		min-height: 6em;
 		color: #666666;
 		font-size: 1em;
+    background-color: #dddddd;
 	}
+}
 
-
+#email_signup_form input#email {
+  margin: 1em 0;
 }
