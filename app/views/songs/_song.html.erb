@@ -1,8 +1,11 @@
 <li>
   <% if song.sound_clip.present? %>
-    <%= link_to song.title, song.sound_clip.url, target: '_blank' %> - <span><%= song.artist %></span> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url, target: '_blank' %>
+    <%= link_to song.title, song.sound_clip.url, target: '_blank' %>
+     - <span>
+         <%= song.artist %><%= " - #{song.release_date}" if song.release_date.present? %>
+       </span> <%= link_to raw("<i class='fa fa-volume-up'></i>"), song.sound_clip.url, target: '_blank' %>
   <% else %>
-    <%= song.title %> - <span><%= song.artist %></span>
+    <%= song.title %> - <span><%= song.artist %></span><%= " - #{song.release_date}" if song.release_date.present? %>
   <% end %>
   <% if user_signed_in? %>
     <%= link_to edit_song_path(song) do %>

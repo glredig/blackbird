@@ -1,6 +1,7 @@
 <%= simple_form_for song do |form| %>
   <%= form.input :title %>
   <%= form.input :artist %>
+  <%= form.input :release_date, label: 'Release Year' %>
   <%= form.file_field :sound_clip %>
   <br>
   <%= form.button :submit %>

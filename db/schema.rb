@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219173336) do
+ActiveRecord::Schema.define(version: 20181028035236) do
 
-  create_table "bios", force: true do |t|
-    t.string   "name"
-    t.string   "instruments"
+  create_table "bios", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "instruments", limit: 255
     t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "bio_image"
+    t.string   "bio_image",   limit: 255
   end
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.text     "summary"
     t.integer  "accessible"
     t.text     "location"
@@ -32,62 +32,63 @@ ActiveRecord::Schema.define(version: 20170219173336) do
     t.datetime "updated_at"
   end
 
-  create_table "media_events", force: true do |t|
-    t.string   "summary"
+  create_table "media_events", force: :cascade do |t|
+    t.string   "summary",    limit: 255
     t.datetime "event_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "media_images", force: true do |t|
-    t.string   "summary"
-    t.string   "credit"
-    t.string   "media_gallery_image"
+  create_table "media_images", force: :cascade do |t|
+    t.string   "summary",             limit: 255
+    t.string   "credit",              limit: 255
+    t.string   "media_gallery_image", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "media_event_id"
   end
 
-  create_table "reviews", force: true do |t|
-    t.string   "name"
+  create_table "reviews", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "date"
     t.text     "summary"
-    t.string   "event"
+    t.string   "event",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "last_name"
+    t.string   "last_name",  limit: 255
   end
 
-  create_table "slides", force: true do |t|
-    t.string   "summary"
-    t.string   "caption"
-    t.string   "slide_image"
+  create_table "slides", force: :cascade do |t|
+    t.string   "summary",         limit: 255
+    t.string   "caption",         limit: 255
+    t.string   "slide_image",     limit: 255
     t.integer  "label_placement"
     t.integer  "position"
-    t.boolean  "publish",         default: false
+    t.boolean  "publish",                     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "songs", force: true do |t|
-    t.string   "title"
-    t.string   "artist"
+  create_table "songs", force: :cascade do |t|
+    t.string   "title",        limit: 255
+    t.string   "artist",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sound_clip"
+    t.string   "sound_clip",   limit: 255
+    t.integer  "release_date"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
