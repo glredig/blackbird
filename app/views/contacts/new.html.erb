@@ -1,6 +1,7 @@
 <div class="two_thirds">
   <div class="pushed_content">
     <h1>send us a message</h1>
+    Or check out the <a href='faq'>FAQ below</a>
 
     <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
       <table class="contact_table"> 
@@ -23,7 +24,26 @@
       <div class= "hidden">
         <%= f.input :nickname, :hint => 'Leave this field blank!' %>
       </div>
-    <% end %>
+    <% end %><br>
+
+    <div id='faq' class='faq'>
+      <h1>frequently asked questions</h1>
+      <span>How much do you charge for an event?</span>
+      <p class='no-top'>There are so many factors that go into determining the price of an event that we require information before we can provide a quote. Please use the form above.</p>
+
+      <span>How far are you willing to travel?</span>
+      <p class='no-top'>Travel costs are part of a price quote when outside the Portland metro area, but Blackbird
+      has played events in Cascadia, OR, Skamania, WA, Lincoln City, OR, and are willing to travel.</p>
+
+      <span>Do you provide your own sound system?</span>
+      <p class='no-top'>Yes, the band has a high quality sound system as well as a lighting setup. All we need from the venue in order to create an amazing atmosphere is power.</p>
+
+      <span>Can you learn my favorite song?</span>
+      <p class='no-top'>With very few exceptions, yes. We take pride in making the event special for you, and always love learning a few of your favorites to help make it memorable!</p>
+
+      <span>Can you provide dinner music as well as dance music?</span>
+      <p class='no-top'>Yes, Blackbird can provide both the quieter dinner background music and the energetic dance music for your event!</p>
+    </div>
   </div>
 </div>
 <%= render partial: "layouts/right_third" %>

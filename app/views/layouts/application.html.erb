@@ -7,6 +7,7 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300italic,300|Rock+Salt' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= favicon_link_tag asset_path('blackbird.ico'), :rel => 'icon', :type => "image/x-icon" %>
 </head>
 <body>
     <section id="header">
@@ -22,7 +23,7 @@
           <i id="nav_trigger" class="fa fa-bars mobile_show"></i>
 
           <ul id="nav_list">
-            <li><%= link_to "bios", bios_path %></li>
+            <li><%= link_to "about", bios_path %></li>
             <li><%= link_to "songlist", songs_path %></li>
             <li><%= link_to "calendar", events_path %></li>
             <li><%= link_to "gallery", media_events_path %></li>

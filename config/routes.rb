@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/events/archive' => 'events#archive'
   resources :events
   resources :songs
-  resources :bios
+  resources :bios, path: '/about'
   resources :reviews
   resources :slides
   resources :media_events, path: "/gallery"

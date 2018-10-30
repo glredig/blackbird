@@ -14,11 +14,10 @@ section#header {
     color: #ccc;
     font-size: 1.2em;
     line-height: 1em;
-    font-weight: 100;
+    font-weight: 300;
 
     &:hover {
-      color: $secondary_blue;
-      font-weight: 200;
+      font-weight: 300;
     }
   }
 
