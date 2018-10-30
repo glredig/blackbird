@@ -17,7 +17,7 @@
       </ul>
       <%= link_to "View All", events_path, class: "view_all_link" %>
     <% else %>
-      <p>No events scheduled.</p>
+      <p><%= link_to 'Request Booking Info', contacts_path, class: 'pseudo_button' %></p>
     <% end %>
   </div>
 

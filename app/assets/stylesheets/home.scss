@@ -42,13 +42,17 @@ div.one_third {
   flex-direction: column;
 
   > div {
-    padding: .5em;
+    padding: .5em .5em 1em;
     margin-bottom: .5em;
     background-color: rgba(0, 0, 0, .5);
   }
 
   a {
     color: $secondary_blue;
+  }
+
+  .pseudo_button {
+    color: #fff;
   }
 
   h2 {
