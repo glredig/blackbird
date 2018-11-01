@@ -198,6 +198,10 @@ ul {
 
   span {
     color: $secondary_blue;
+
+    &.instruments {
+      font-variant: normal;
+    }
   }
 }
 
