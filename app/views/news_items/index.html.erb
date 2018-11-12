@@ -1,0 +1,28 @@
+<div class="two_thirds">
+  <div class="pushed_content">
+    <h1>news</h1>
+
+    <%= link_to "Add news item", new_news_item_path if user_signed_in? %>
+
+    <ul class="blocked">
+    <% @news_items.each do |news_item| %>
+      <li>
+        <% if user_signed_in? %>
+            <div class="pos_fr">
+              <%= link_to edit_news_item_path(news_item) do %>
+                <%= icon('edit', '', class: "pos_fr strong") %>
+              <% end %>
+            </div>
+          <% end %>
+        <span><%= news_item.created_at.strftime('%m.%d.%Y') %></span><br>
+        <%= news_item.title if news_item.title %> <br>
+        <%= news_item.content.html_safe %> 
+        <br><br>
+        <%= "[Currently published]" if news_item.publish? %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= render partial: "layouts/right_third" %>

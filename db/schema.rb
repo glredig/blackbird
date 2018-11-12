@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181028035236) do
+ActiveRecord::Schema.define(version: 20181112181153) do
 
   create_table "bios", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20181028035236) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "media_event_id"
+  end
+
+  create_table "news_items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "publish",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: :cascade do |t|

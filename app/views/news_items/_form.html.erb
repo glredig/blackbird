@@ -1,0 +1,7 @@
+<%= simple_form_for news_item do |form| %>
+  <%= form.input :title %>
+  <%= form.input :content %>
+  <%= form.input :publish, label: "Show this item?" %>
+
+  <%= form.button :submit %>
+<% end %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :events
   resources :songs
   resources :bios, path: '/about'
+  resources :news_items, path: '/news'
   resources :reviews
   resources :slides
   resources :media_events, path: "/gallery"

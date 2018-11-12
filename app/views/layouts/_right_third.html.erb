@@ -22,12 +22,15 @@
     <% end %>
   </div>
 
+  <%= render partial: "layouts/news" if NewsItem.any? %>
+
   <div>
     <h2>Reviews</h2>
     <div id="review_widget" data-url="<%= reviews_url %>">
     </div>
     <%= link_to "View All", reviews_path, class: "view_all_link" %>
   </div>
+
   <div>
     <%= render partial: "layouts/email_signup" %>
   </div>
