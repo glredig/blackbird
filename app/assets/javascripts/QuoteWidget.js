@@ -98,7 +98,7 @@ var QuoteWidget = (function() {
     }
 
     function Quote(config) {
-    	this.summary = config.text.split('').slice(0, 120).join('');
+    	this.summary = config.text.split('').slice(0, 130).join('');
     	this.name = config.name || "Anonymous";
     	this.parent_node = config.parent;
     	this.position = config.position;
@@ -114,12 +114,12 @@ var QuoteWidget = (function() {
 
     	_build: function() {
     		var name;
-    		this.node = document.createElement('div');
+    		this.node = document.createElement('blockquote');
 			this.node.className = 'quote';
-			this.node.innerText = '"' + this.summary + '..."';
+			this.node.innerText = this.summary + '...';
 			name = document.createElement('div');
 			name.className = 'quote_name';
-			name.innerText = this.name;
+			name.innerText = this.name.toLowerCase();
 			this.node.appendChild(name);
 			this.parent_node.appendChild(this.node);
     	},

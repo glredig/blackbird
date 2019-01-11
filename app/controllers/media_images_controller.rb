@@ -10,12 +10,14 @@ class MediaImagesController < ApplicationController
   end
 
   def create
-    @media_image = MediaImage.create!(media_image_params)
+    @media_image = MediaImage.new(media_image_params)
 
     if @media_image.save
+      p "saved #{@media_image.inspect}"
       flash[:success] = "Image added."
       redirect_to media_events_path
     else
+      p "#{@media_image.errors.inspect}"
       flash[:alert] = "Error in saving image."
       redirect_to new_media_image_path
     end

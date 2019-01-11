@@ -16,9 +16,7 @@
         <li>
           <% if user_signed_in? %>
             <div class="pos_fr">
-              <%= link_to edit_review_path(review) do %>
-                <%= icon('edit', '', class: "pos_fr strong") %>
-              <% end %>
+              <%= link_to 'Edit', edit_review_path(review) %>
             </div>
           <% end %>
           "<%= review.summary %>" <br>

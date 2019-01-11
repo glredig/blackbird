@@ -1,22 +1,56 @@
 #review_widget {
 	position: relative;
 	height: 140px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+
+	// .quote {
+	// 	position: absolute;
+	// 	top: .5em;
+	// 	left: 0;
+	// 	width: 89%;
+	// 	max-height: 70px;
+	// 	padding: 1em 1em 2.3em;
+	// 	margin: .5em;
+	// 	// border-radius: 1em;
+	// 	// border: 1px solid #888;
+	// 	color: #fff;
+
+	// 	.quote_name {
+	// 		font-weight: bold;
+	// 		font-variant: small-caps;
+	// 	}
+	// }
 
 	.quote {
 		position: absolute;
-		top: .5em;
-		left: 0;
+		z-index: 1;
+		top: 1.5em;
+		left: 1.5em;
 		width: 89%;
 		max-height: 70px;
-		padding: 1em 1em 2.3em;
-		margin: .5em;
-		border-radius: 1em;
-		border: 1px solid #888;
-		color: #fff;
+		color: #55607d;
+		font-size: 1.2em;
+	  // position: relative;
+	  // font-size: $base-font-size;
+	  // line-height: $base-line-height;
+	  	&:before {
+	  		font-family: 'Sanchez', serif;
+	      content: '\201C';
+	      position: absolute;
+	      top: 0.25em;
+	      left: -0.15em;
+	      color: rgba(255, 255, 255, .1);
+	      font-size: 6em;
+	      z-index: -1;
+	   }
 
-		.quote_name {
-			font-style: italic;
-			text-align: right;
+	   .quote_name {
+			font-weight: bold;
+			font-variant: small-caps;
+			color: rgba(255, 255, 255, .2);
 		}
 	}
 }
