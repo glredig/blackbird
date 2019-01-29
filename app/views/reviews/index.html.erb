@@ -13,14 +13,14 @@
 
     <ul class="blocked reviews">
       <% @reviews.each do |review| %>
-        <li>
+        <li class="quote">
           <% if user_signed_in? %>
             <div class="pos_fr">
               <%= link_to 'Edit', edit_review_path(review) %>
             </div>
           <% end %>
-          "<%= review.summary %>" <br>
-          <div class="align_right"><span><%= review.anonymized_name %> (<%= review.date.strftime("%m.%d.%y") %>)</span></div>
+          <%= review.summary %> <br>
+          <div class="align_right"><span><%= review.anonymized_name.downcase %> (<%= review.date.strftime("%m.%d.%y") %>)</span></div>
         </li>
       <% end %>
     </ul>

@@ -115,13 +115,13 @@ var QuoteWidget = (function() {
     	_build: function() {
     		var name;
     		this.node = document.createElement('blockquote');
-			this.node.className = 'quote';
-			this.node.innerText = this.summary + '...';
-			name = document.createElement('div');
-			name.className = 'quote_name';
-			name.innerText = this.name.toLowerCase();
-			this.node.appendChild(name);
-			this.parent_node.appendChild(this.node);
+  			this.node.className = 'quote';
+  			this.node.innerText = this.summary + '...';
+  			name = document.createElement('div');
+  			name.className = 'quote_name';
+  			name.innerText = this.name.toLowerCase();
+  			this.node.appendChild(name);
+  			this.parent_node.appendChild(this.node);
     	},
 
 	    fadeOut: function(time) {

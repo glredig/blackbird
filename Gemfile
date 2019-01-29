@@ -17,7 +17,7 @@ gem "mini_magick"
 gem 'fog'
 gem 'nested_form'
 gem 'sidekiq'
-gem 'font-awesome-sass', '~> 5.6.1'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'gibbon', '~> 1.2.0'
 gem 'mandrill-api'
 gem 'figaro'
