@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @events = Event.all.order(:date)
+    @events = Event.upcoming.order(:date)
     @display_events = []
 
     @events.each do |event|
@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   end
 
   def archive
-    @events = Event.all
+    @events = Event.all.order(date: :desc)
   end
 
   private
