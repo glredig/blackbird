@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112181153) do
+ActiveRecord::Schema.define(version: 20190218045315) do
 
   create_table "bios", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20181112181153) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "bio_image",   limit: 255
+    t.integer  "position"
   end
 
   create_table "events", force: :cascade do |t|

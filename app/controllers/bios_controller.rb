@@ -53,7 +53,7 @@ class BiosController < ApplicationController
   private
 
   def bio_params
-    params.require(:bio).permit(:name, :instruments, :summary, :bio_image)
+    params.require(:bio).permit(:name, :instruments, :summary, :bio_image, :position)
   end
 
   def check_admin
