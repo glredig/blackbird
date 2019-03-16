@@ -224,9 +224,10 @@ var arc_calendar = (function() {
 
       /** Add all events for clicked Day to popup */
       for (i; i < events.length; i++) {
+        console.log('event', i, events[i].accessible);
         type_label = document.createElement('div');
-        type_label.className = 'arc_calendar_event_type_label type_' + events[i].accessible;
-        type_label.innerHTML = EVENT_TYPES[events[i].accessible];
+        type_label.className = 'arc_calendar_event_type_label type_' + EVENT_TYPES.indexOf(events[i].accessible);
+        type_label.innerHTML = events[i].accessible;
 
         summary = document.createElement('div');
         summary.className = 'arc_calendar_event_summary';
@@ -380,7 +381,7 @@ var arc_calendar = (function() {
       for (i = 0; i < this.parent.parent.data.length; i++) {
         if (this.parent.parent.data[i].date == this.dateToString()) {
           this.events.push(this.parent.parent.data[i]);
-          event_type = (this.parent.parent.data[i] == undefined ? 'none' : this.parent.parent.data[i]["accessible"]);
+          event_type = (this.parent.parent.data[i] == undefined ? 'none' : EVENT_TYPES.indexOf(this.parent.parent.data[i].accessible));
           this.parent.parent.removeEvent(i);
           this.cell.className += " has_event type_" + event_type;
         }

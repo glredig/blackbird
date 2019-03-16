@@ -7,5 +7,5 @@ class Event < ActiveRecord::Base
 
   scope :upcoming, -> { where("date >= ?", Date.today.to_datetime)}
 
-  ACCESSIBLE = ['Public', 'Private']
+  enum accessible: ['Public', 'Private', 'Unavailable', 'Available']
 end
