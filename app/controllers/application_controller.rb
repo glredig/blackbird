@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_right_third
 
   def set_right_third
-    @upcoming_events = Event.all.upcoming
+    @upcoming_events = Event.all.upcoming.order(:date)
     @reviews = Review.all
   end
 end
