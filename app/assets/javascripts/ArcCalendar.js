@@ -224,7 +224,6 @@ var arc_calendar = (function() {
 
       /** Add all events for clicked Day to popup */
       for (i; i < events.length; i++) {
-        console.log('event', i, events[i].accessible);
         type_label = document.createElement('div');
         type_label.className = 'arc_calendar_event_type_label type_' + EVENT_TYPES.indexOf(events[i].accessible);
         type_label.innerHTML = events[i].accessible;
@@ -294,10 +293,10 @@ var arc_calendar = (function() {
       if (this.first_day == 0 && this.number_of_days < 29) {
         return 4
       }
-      else if (this.first_day > 5 && this.number_of_days == 31) {
+      else if (this.first_day >= 5 && this.number_of_days == 31) {
         return 6
       }
-      else if (this.first_day > 6 && this.number_of_days == 30) {
+      else if (this.first_day >= 6 && this.number_of_days == 30) {
         return 6
       }
       else {
@@ -337,7 +336,7 @@ var arc_calendar = (function() {
           day.setYear(this.year);
 
           /** If current day is outside of current month */
-          if (cell_count < (this.first_day - 1) || cell_day > this.number_of_days) {
+          if (cell_count < this.first_day || cell_day > this.number_of_days) {
             day.is_in_month = false;
             day.setMonth(null);
             day.cell.className = 'arc_calendar_inactive_day';
