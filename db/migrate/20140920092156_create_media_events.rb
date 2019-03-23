@@ -1,4 +1,4 @@
-class CreateMediaEvents < ActiveRecord::Migration
+class CreateMediaEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :media_events do |t|
       t.string :summary

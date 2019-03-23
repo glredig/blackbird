@@ -1,4 +1,4 @@
-class CreateMediaImage < ActiveRecord::Migration
+class CreateMediaImage < ActiveRecord::Migration[5.2]
   def change
     create_table :media_images do |t|
       t.string :summary
