@@ -63,27 +63,24 @@
 		z-index: 1;
 		position: relative;
 		color: #55607d;
-		padding: 1em;
+		padding: 1.5em;
 		font-size: 1.1em;
 	  	&:before {
-	  		font-family: 'Sanchez', serif;
+	  	  font-family: 'Sanchez', serif;
 	      content: '\201C';
 	      position: absolute;
 	      top: 0.35em;
 	      left: -.05em;
-	      color: rgba(255, 255, 255, .15);
+	      color: rgba(255, 255, 255, .08);
 	      font-size: 6em;
 	      z-index: -1;
 	   }
 
-	  .quote_name,
-	  .align_right span {
-	  	font-size: 1em;
+		.quote_name,
+		span {
+			font-size: 1em;
 			font-weight: bold;
 			color: rgba(150, 150, 150, .6);
-		}
-
-		.quote_name {
 			font-variant: small-caps;
 		}
 	}
