@@ -22,7 +22,7 @@ gem "mini_magick"
 gem 'fog'
 gem 'nested_form'
 gem 'sidekiq'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'gibbon'
 gem 'mandrill-api'
 gem 'figaro'
@@ -40,7 +40,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
   gem 'rspec-rails'
   gem 'pry-byebug'
 end

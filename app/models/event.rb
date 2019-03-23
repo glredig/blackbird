@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   validates :summary, presence: true
   validates :accessible, presence: true
   validates :location, presence: true

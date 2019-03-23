@@ -1,4 +1,4 @@
-class Slide < ActiveRecord::Base
+class Slide < ApplicationRecord
   mount_uploader :slide_image, SlideImageUploader
   
   validates_presence_of :summary

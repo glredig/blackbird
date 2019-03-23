@@ -1,4 +1,4 @@
-class Review < ActiveRecord::Base
+class Review < ApplicationRecord
   validates :name, presence: true
   validates :date, presence: true
   validates :summary, presence: true

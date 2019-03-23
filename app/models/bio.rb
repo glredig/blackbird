@@ -1,4 +1,4 @@
-class Bio < ActiveRecord::Base
+class Bio < ApplicationRecord
   mount_uploader :bio_image, BioImageUploader
   
   validates_presence_of :name

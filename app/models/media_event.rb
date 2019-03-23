@@ -1,4 +1,4 @@
-class MediaEvent < ActiveRecord::Base
+class MediaEvent < ApplicationRecord
   has_many :media_images
   has_many :media_videos
 

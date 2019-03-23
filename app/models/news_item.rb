@@ -1,4 +1,4 @@
-class NewsItem < ActiveRecord::Base
+class NewsItem < ApplicationRecord
 	validates_presence_of :content
 
 	scope :published, -> { where(publish: true)}
