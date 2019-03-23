@@ -1,5 +1,5 @@
 class BiosController < ApplicationController
-  before_filter :check_admin, only: [:new, :edit, :create, :update, :destroy] 
+  before_action :check_admin, only: [:new, :edit, :create, :update, :destroy] 
   
   def index
     @bios = Bio.all

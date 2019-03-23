@@ -1,5 +1,5 @@
 class SlidesController < ApplicationController
-  before_filter :check_admin, except: [:index]
+  before_action :check_admin, except: [:index]
 
   def index
     @slides = Slide.all
