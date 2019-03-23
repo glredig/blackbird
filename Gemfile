@@ -1,13 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.8'
+gem 'rails', '5.2.2'
+gem 'actionmailer', '5.2.2'
+gem 'actionpack', '5.2.2'
+gem 'activemodel', '5.2.2'
+gem 'activesupport', '5.2.2'
+gem 'railties', '5.2.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'jbuilder'
+gem 'sdoc'
 gem 'devise'
 gem 'mail_form'
 gem 'simple_form'
@@ -17,8 +21,8 @@ gem "mini_magick"
 gem 'fog'
 gem 'nested_form'
 gem 'sidekiq'
-gem 'font-awesome-sass', '~> 4.7.0'
-gem 'gibbon', '~> 1.2.0'
+gem 'font-awesome-sass'
+gem 'gibbon'
 gem 'mandrill-api'
 gem 'figaro'
 gem 'puma'
@@ -36,18 +40,18 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails', '3.5.0'
+  gem 'rspec-rails'
   gem 'pry-byebug'
 end
 
 group :test do
-  gem 'capybara', '2.4.1'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'launchy'
 end
 
 group :production do
-  gem 'pg', '~> 0.19.0'
+  gem 'pg'
   gem 'rails_12factor'
 end
 
