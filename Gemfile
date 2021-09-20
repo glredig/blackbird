@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-gem 'rails', '5.2.2'
-gem 'actionmailer', '5.2.2'
-gem 'actionpack', '5.2.2'
-gem 'activemodel', '5.2.2'
-gem 'activesupport', '5.2.2'
-gem 'railties', '5.2.2'
+gem 'rails', '>= 5.2.4'
+gem 'actionmailer'
+gem 'actionpack'
+gem 'activemodel'
+gem 'activesupport'
+gem 'railties'
 gem 'bcrypt', '~> 3.1.7'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -31,6 +31,7 @@ gem 'puma'
 
 
 group :development do
+  gem 'rest-client'
 	gem 'spring'
 	gem 'capistrano'
 	gem 'capistrano3-puma', github: "seuros/capistrano-puma"
@@ -40,7 +41,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.6'
+  gem 'sqlite3', '~> 1.4'
   gem 'rspec-rails'
   gem 'pry-byebug'
 end
