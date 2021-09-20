@@ -8,7 +8,9 @@ section#header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2; 
+  z-index: 2;
+  display: flex;
+  align-items: center;;
 
   a {
     color: #ccc;
@@ -25,7 +27,7 @@ section#header {
     float: right;
     line-height: 1.6em;
     color: #888;
-    font-size: 2.5em;
+    font-size: 2rem;
     margin-right: 2%;
   }
 }
@@ -35,11 +37,10 @@ ul#nav_list{
   margin-right: 10px;
 
   li {
-    float: left;
     margin-right: 1em;
     display: inline-block;
     font-variant: small-caps;
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 2.5em;
   }
 }

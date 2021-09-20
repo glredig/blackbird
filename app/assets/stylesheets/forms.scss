@@ -1,30 +1,46 @@
 input[type=email],
 input[type=text] {
-  padding: 0 .4em;
+  padding: 0 .4rem;
   border: none;
-  height: 2.5em;
-  margin: 1em;
-  font-size: 1em;
+  height: 3rem;
+  margin: 1rem;
+  font-size: 1rem;
   width: 60%;
   color: #666666;
-  background-color: #dddddd;
+  background-color: #ccc;
+  border-radius: 6px;
 }
 
 a.pseudo_button, input[type=submit] {
   cursor: pointer;
   border: none;
   background-color: $secondary_blue;
-  padding: .5em;
   font-weight: normal;
   font-size: 1em;
   color: #eee;
-  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  text-indent: 0;
+  border-radius: 4px;
   transition: background-color 0.5s ease;
+
+  &.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   &:hover {
     text-decoration: none;
     background-color: lighten( $secondary_blue, 20% );
   }
+}
+
+input[type=submit] {
+  height: 1.5rem;
+  box-sizing: content-box;
 }
 
 .contact_table {
@@ -43,10 +59,21 @@ a.pseudo_button, input[type=submit] {
 		min-height: 6em;
 		color: #666666;
 		font-size: 1em;
-    background-color: #dddddd;
+    background-color: #ccc;
+    border-radius: 6px;
 	}
 }
 
+#email_signup_form form {
+  display: flex;
+  align-items: center;
+}
+
 #email_signup_form input#email {
-  margin: 1em 0;
+  margin: 1rem 1rem 1rem 0;
+}
+
+#email_signup_form input[type=submit] {
+  height: 1.5rem;
+  box-sizing: content-box;
 }

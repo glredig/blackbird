@@ -27,6 +27,7 @@ function ready() {
   if ($('#calendar').length) {
     arc_calendar.init({
       container: $('#calendar')[0],
+      default_message: 'No event scheduled.',
       url: $('#calendar').attr('data-url'),
       event_types: ['Public', 'Private', 'Unavailable', 'Available']
     })

@@ -222,11 +222,13 @@ var arc_calendar = (function() {
       /** Clear content from popup */
       this.popup.content_node.innerHTML = '';
 
+      console.log('showpop', events[0], EVENT_TYPES);
+
       /** Add all events for clicked Day to popup */
-      for (i; i < events.length; i++) {
+      for (var i = 0; i < events.length; i++) {
         type_label = document.createElement('div');
-        type_label.className = 'arc_calendar_event_type_label type_' + EVENT_TYPES.indexOf(events[i].accessible);
-        type_label.innerHTML = events[i].accessible;
+        type_label.className = 'arc_calendar_event_type_label type_' + events[i].accessible;
+        type_label.innerHTML = EVENT_TYPES[events[i].accessible];
 
         summary = document.createElement('div');
         summary.className = 'arc_calendar_event_summary';

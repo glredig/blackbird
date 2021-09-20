@@ -11,7 +11,7 @@
       Thank you to everyone who took the time to write a review of the band. We really appreciate your kind words!
     </p>
 
-    <ul class="blocked reviews">
+    <ul class="blocked">
       <% @reviews.each do |review| %>
         <li class="quote">
           <% if user_signed_in? %>
@@ -20,7 +20,7 @@
             </div>
           <% end %>
           <%= review.summary %> <br>
-          <span><%= review.anonymized_name.downcase %></span>
+          <span><%= review.anonymized_name %></span>
         </li>
       <% end %>
     </ul>

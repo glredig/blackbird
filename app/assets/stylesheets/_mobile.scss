@@ -23,12 +23,13 @@
     overflow: hidden;
     margin-right: 0;
     min-width: 350px;
+    border-radius: 4px;
 
     li {
       display: block;
       width: 100%;
       text-transform: capitalize;
-      background-color: #ccd;
+      background-color: #ccc;
       
       a {
         width: 100%;
@@ -102,5 +103,12 @@
         margin-right: 0;
       }
     }
+  }
+
+  #home_logo_link {
+    position: static;
+    left: .5em;
+    z-index: 2;
+    height: 75px;
   }
 }

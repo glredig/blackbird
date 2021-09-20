@@ -55,9 +55,20 @@ h1 {
   a.pseudo_button {
     font-size: .4em;
     font-variant: normal;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
     text-shadow: none;
+    width: fit-content;
+    text-indent: 0;
     color: #fff;
+    border-radius: 4px;
+
+    &.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
@@ -164,6 +175,7 @@ ul {
 }
 
 .centered_content {
+  width: 100%;
   max-width: 1366px;
   margin: 0 auto;
   position: relative;
@@ -183,6 +195,9 @@ ul {
 
 .nav_links {
   width: 68%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .content_with_margin {
