@@ -13,10 +13,10 @@
             </div>
           <% end %>
         <span><%= event.date.strftime('%m.%d.%Y') %></span><br>
-        <%= event.summary %> <br>
-        <%= event.location %> 
+        <%= event.summary.html_safe %> <br>
+        <%= event.location.html_safe %> 
         <% if user_signed_in? %>
-    		<em>Pay: $<%= number_to_currency(event.pay / 100.0) %></em>
+    		<em>Pay: <%= number_to_currency(event.pay / 100.0) %></em>
         <% end %>
       </li>
     <% end %>

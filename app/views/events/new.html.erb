@@ -2,7 +2,7 @@
 
 <%= simple_form_for @event do |form| %>
   <%= form.input :date, start_year: Time.now.year - 15,
-  end_year: Time.now.year %>
+  end_year: Time.now.year + 2 %>
   <%= form.input :accessible, collection: Event.accessibles.map { |item| [item[0], item[0]] }, include_blank: false %>
   <%= form.input :location %>
   <%= form.input :pay, as: :integer, hint: "In pennies, to avoid decimals." %>

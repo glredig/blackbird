@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     @events = Event.upcoming.order(:date)
     @display_events = []
 
-    @display_events = @events.map do |event|
+    @display_events = Event.order(:date).map do |event|
       { summary: event.summary, accessible: event.accessible, location: event.location, date: event.date.strftime('%m-%d-%Y')}
     end
     
