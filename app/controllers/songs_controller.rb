@@ -27,7 +27,7 @@ class SongsController < ApplicationController
 
   def update 
     @song = Song.find(params[:id])
-    @song.update_attributes(song_params)
+    @song.update(song_params)
     
     if @song.save
       flash[:success] = "Changes saved!"

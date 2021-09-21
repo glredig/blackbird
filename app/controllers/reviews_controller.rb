@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
 
   def update 
     @review = Review.find(params[:id])
-    @review.update_attributes(review_params)
+    @review.update(review_params)
     
     if @review.save
       flash[:success] = "Changes saved!"

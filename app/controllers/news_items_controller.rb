@@ -26,7 +26,7 @@ class NewsItemsController < ApplicationController
 
 	def update
 		@news_item = NewsItem.find(params[:id])
-		@news_item.update_attributes(news_item_params)
+		@news_item.update(news_item_params)
 
 		if @news_item.save
 			flash[:success] = "Changes saved!"

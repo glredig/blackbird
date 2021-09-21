@@ -27,7 +27,7 @@ class BiosController < ApplicationController
 
   def update
     @bio = Bio.find(params[:id])
-    @bio.update_attributes(bio_params)
+    @bio.update(bio_params)
 
     if @bio.save
       flash[:success] = "Bio updated."

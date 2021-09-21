@@ -52,7 +52,7 @@ class MediaEventsController < ApplicationController
   def update
     @media_event = MediaEvent.find(params[:id])
 
-    if @media_event.update_attributes(event_params)
+    if @media_event.update(event_params)
       flash[:success] = "Changes saved!"
       redirect_to media_events_path
     else

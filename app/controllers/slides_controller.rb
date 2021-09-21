@@ -19,7 +19,7 @@ class SlidesController < ApplicationController
     @slide = Slide.create(slide_params)
 
     unless slide_params[:label_placement].present?
-      @slide.update_attributes(position: last_position + 1)
+      @slide.update(position: last_position + 1)
     end
 
     if @slide.save
@@ -37,7 +37,7 @@ class SlidesController < ApplicationController
 
   def update
     @slide = Slide.find(params[:id])
-    @slide.update_attributes(slide_params)
+    @slide.update(slide_params)
 
     if @slide.save
       flash[:success] = "Slide updated."
