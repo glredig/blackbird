@@ -227,8 +227,8 @@ var arc_calendar = (function() {
       /** Add all events for clicked Day to popup */
       for (var i = 0; i < events.length; i++) {
         type_label = document.createElement('div');
-        type_label.className = 'arc_calendar_event_type_label type_' + events[i].accessible;
-        type_label.innerHTML = EVENT_TYPES[events[i].accessible];
+        type_label.className = 'arc_calendar_event_type_label type_' + EVENT_TYPES.indexOf(events[i].accessible);
+        type_label.innerHTML = events[i].accessible;
 
         summary = document.createElement('div');
         summary.className = 'arc_calendar_event_summary';
