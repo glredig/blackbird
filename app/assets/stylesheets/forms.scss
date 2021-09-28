@@ -43,6 +43,11 @@ input[type=submit] {
   box-sizing: content-box;
 }
 
+textarea {
+  min-width: 300px;
+  min-height: 6em;
+}
+
 .contact_table {
 	width: 80%;
 

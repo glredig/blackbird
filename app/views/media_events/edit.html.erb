@@ -4,4 +4,17 @@
 
 <% if user_signed_in? %>
   <%= link_to "Add new image", new_media_image_path(media_event_id: @media_event.id), class: "pseudo_button" %>
+  <table>
+    <% @media_images.each do |image| %>
+      <tr>
+        <td>
+          <%= image.media_gallery_image %>
+        </td>
+        <td>
+          <%= link_to "Delete", media_image_path(image), method: :delete, :data => {:confirm => 'Are you sure?'} %>
+        </td>
+      </tr>
+    <% end %>
+    
+  </table>
 <% end %>

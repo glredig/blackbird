@@ -1,3 +1,4 @@
 <h1>Edit song</h1>
 
 <%= render partial: "form", locals: { song: @song } %>
+<%= link_to "Delete", song_path(@song), method: :delete, :data => {:confirm => 'Are you sure?'} %>

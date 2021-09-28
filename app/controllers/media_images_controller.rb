@@ -30,6 +30,16 @@ class MediaImagesController < ApplicationController
   end
 
   def destroy
+    @media_image = MediaImage.find(params[:id])
+
+    if @media_image.destroy
+      flash[:success] = "Image deleted."
+      redirect_to media_events_path
+    else
+      p "#{@media_image.errors.inspect}"
+      flash[:alert] = "Error in saving image."
+      redirect_to new_media_image_path
+    end
   end
 
   def media_image_params

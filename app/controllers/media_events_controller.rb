@@ -47,6 +47,7 @@ class MediaEventsController < ApplicationController
 
   def edit
     @media_event = MediaEvent.find(params[:id])
+    @media_images = @media_event.media_images
   end
 
   def update
