@@ -1,12 +1,12 @@
 class Apis::EmailController < ApplicationController 
   def subscribe
     @list_id = ENV["MAILCHIMP_LIST_ID"]
-    gb = Gibbon::API.new
+    gb = Gibbon::Request.new
 
-    @result = gb.lists.subscribe({
-      :id => @list_id,
-      :email => {:email => params[:email][:address]}
-      })
+    @result = gb.lists(@list_id).members.create(body: {
+      email_address: params[:email][:address],
+      status: "pending"
+    })
 
     if @result
       @js_email_success = "Thank you! An email has been to you with instructions to complete registration. Please check your spam folder."

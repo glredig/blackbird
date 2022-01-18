@@ -6,6 +6,6 @@ class ContactMailer < ApplicationMailer
 		@email = 'glredig@gmail.com'
 		@message = message
 
-		mail(to: @email, subject: "Web Contact Form", message: @message, name: @name)
+		mail(to: @email, subject: "Web Contact Form", content_type: "text/plain", message: @message, name: @name)
 	end
 end

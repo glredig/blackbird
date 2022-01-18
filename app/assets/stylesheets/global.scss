@@ -149,7 +149,7 @@ ul {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .clear {
@@ -167,7 +167,27 @@ ul {
 .notice, 
 .alert {
   position: fixed;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 2em;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 2;
   top: 0;
+  color: #222;
+}
+
+.notice {
+  background-color: #77b856;
+}
+
+.alert {
+  background-color: #9e3b2e;
 }
 
 .align_right {

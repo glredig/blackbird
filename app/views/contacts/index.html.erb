@@ -1,0 +1,25 @@
+<div class="two_thirds">  
+  <div class="pushed_content translucent">
+    <h1>
+      online form contacts
+    </h1>
+
+    <p>
+      These are the contact requests we have received
+    </p>
+
+    <table class="contacts_table">
+      <thead>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Message</td>
+        <td>Received</td>
+        <td>Responded?</td>
+      </thead>
+      <tbody>
+        <%= render partial: 'contacts/contact', collection: @contacts %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= render partial: "layouts/right_third" %>

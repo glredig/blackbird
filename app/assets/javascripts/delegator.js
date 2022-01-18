@@ -38,4 +38,6 @@ function ready() {
       element: $('#review_widget')[0]
     })
   }
+
+  $(".notice, .alert").fadeOut(3000);
 }

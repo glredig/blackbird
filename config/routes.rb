@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "home/index"
   get "/samples", to: 'samples#index'
   get '/contacts', to: 'contacts#new'
+  get '/contacts/view_all', to: 'contacts#index'
 
   root to: 'home#index'
 

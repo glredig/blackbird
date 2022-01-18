@@ -1,0 +1,12 @@
+.contacts_table {
+  border-collapse: collapse;
+
+  td {
+    border: 1px solid #ccc;
+    padding: 0.3rem;
+  }
+
+  thead td {
+    background: #555;
+  }
+}

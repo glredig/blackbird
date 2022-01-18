@@ -36,17 +36,14 @@
     <div class="clear"></div>
     <section id="content" class="<%= controller_name %>">
       <div class="centered_content">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <div class="notice <%= notice ? '' : 'hidden' %>"><%= notice %></div>
+        <div class="alert <%= alert ? '' : 'hidden' %>"><%= alert %></div>
         <%= yield %>
         <div class="clear"></div>
       </div>
     </section>
   <section id="footer">
     <div id="centered_content">
-      <div class="user_widget">
-        <%= render partial: "layouts/user_widget" %>
-      </div>
       <div id="social_media">
         <ul class="inline">
           <li>
