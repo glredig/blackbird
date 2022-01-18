@@ -25,7 +25,7 @@
     <% @bios.each do |bio| %>
       <div class="pseudo_li">
         <h2>
-          <%= bio.name %> <span class="instruments">(<%= bio.instruments %>)</span>
+          <%= bio.name.downcase %> <span class="instruments">(<%= bio.instruments %>)</span>
           <% if user_signed_in? %>
             <%= link_to edit_bio_path(bio) do %>
               <%= icon('edit', '', class: "pos_fr strong") %>
