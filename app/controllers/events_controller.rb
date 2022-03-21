@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:summary, :location, :accessible, :date, :pay)
+    params.require(:event).permit(:summary, :location, :accessible, :date, :pay, :notes)
   end
 
   def check_admin

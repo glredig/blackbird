@@ -1,5 +1,6 @@
 input[type=email],
-input[type=text] {
+input[type=text],
+input[type=number] {
   padding: 0 .4rem;
   border: none;
   height: 2.5rem;
@@ -81,4 +82,28 @@ textarea {
 #email_signup_form input[type=submit] {
   height: 1.5rem;
   box-sizing: content-box;
+}
+
+div.input {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  abbr {
+    color: #e03d45;
+    text-decoration: none;
+  }
+
+  input, textarea, select {
+    margin: 0 0.75rem;
+  }
+
+  span.hint {
+    color: #ffffff;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }

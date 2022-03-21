@@ -25,7 +25,8 @@
         <%= event.summary %> <br>
         <%= event.location %> 
         <% if user_signed_in? %>
-    		<em>Pay: <%= number_to_currency(event.pay / 100.0) %></em>
+          <em>Pay: <%= number_to_currency(event.pay / 100.0) %></em>
+          <p>Notes: <%= event.notes %></p>
         <% end %>
       </li>
     <% end %>
