@@ -2,7 +2,7 @@ class BiosController < ApplicationController
   before_action :check_admin, only: [:new, :edit, :create, :update, :destroy] 
   
   def index
-    @bios = Bio.all
+    @bios = Bio.all.shuffle
   end
 
   def new
