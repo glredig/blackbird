@@ -1,6 +1,6 @@
 <h2>Event Notifications</h2>
 <div id="email_signup_form">
-<%= form_tag('apis/email/subscribe', method: "post", id: "subscribe", remote: "true") do -%>
+<%= form_tag(apis_email_subscribe_path, method: "post", id: "subscribe", remote: "true") do -%>
    <%= email_field(:email, :address, {id: "email", placeholder: "Email address"}) %>
    <%= submit_tag("Sign me up!") %>
 <% end %>
