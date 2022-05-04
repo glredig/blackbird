@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :check_admin, only: [:index] 
   
   def index
-    @contacts = Contact.all.order(:created_at)
+    @contacts = Contact.all.where(responded: false).order(created_at: :desc)
   end
 
   def new
