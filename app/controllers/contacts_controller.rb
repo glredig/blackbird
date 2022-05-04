@@ -10,6 +10,11 @@ class ContactsController < ApplicationController
   end
 
   def create
+    unless contact_params[:nickname].nil?
+      flash[:notice] = "Thank you for contacting the band!"
+      redirect_to root_path and return
+    end
+
     @contact = Contact.create(contact_params)
     if @contact.save
       flash[:notice] = "Thank you for contacting the band!"
@@ -23,7 +28,7 @@ class ContactsController < ApplicationController
   private
   
   def contact_params
-    params.require(:contact).permit(:name, :email, :message)
+    params.require(:contact).permit(:name, :email, :message, :nickname)
   end
 
   def check_admin
