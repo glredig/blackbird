@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    unless contact_params[:nickname].nil?
+    unless contact_params[:nickname].empty?
       flash[:notice] = "Thank you for contacting the band!"
       redirect_to root_path and return
     end
@@ -22,6 +22,18 @@ class ContactsController < ApplicationController
     else
       flash.now[:error] = 'Could not send message'
       render :new
+    end
+  end
+
+  def destroy
+    @contact = Contact.find(params[:id])
+
+    if @contact.destroy
+      flash[:success]  = "Contact deleted."
+      redirect_to contacts_view_all_path
+    else
+      flash[:alert] = "Error in deleting contact."
+      redirect_to contacts_view_all_path
     end
   end
 

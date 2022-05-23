@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:new, :create, :destroy]
   get '/events/archive' => 'events#archive'
   resources :events
   resources :songs
