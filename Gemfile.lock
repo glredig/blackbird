@@ -533,7 +533,6 @@ DEPENDENCIES
   pry-byebug
   puma
   rails (>= 5.2.4)
-  rails-html-sanitizer
   rails_12factor
   railties
   rest-client

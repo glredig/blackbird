@@ -21,7 +21,6 @@ gem 'carrierwave'
 gem "mini_magick"
 gem 'fog'
 gem 'nested_form'
-gem 'rails-html-sanitizer'
 gem 'sidekiq'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'gibbon'
