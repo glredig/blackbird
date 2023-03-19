@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.6.8'
+ruby '3.1.0'
 
 gem 'rails', '>= 5.2.4'
 gem 'actionmailer'
