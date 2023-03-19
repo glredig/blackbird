@@ -10,6 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
+    # This is the bot trap
     unless contact_params[:nickname].empty?
       flash[:notice] = "Thank you for contacting the band!"
       redirect_to root_path and return
@@ -18,6 +19,7 @@ class ContactsController < ApplicationController
     @contact = Contact.create(contact_params)
     if @contact.save
       flash[:notice] = "Thank you for contacting the band!"
+      ContactMailer.with(email: contact_params[:email], name: contact_params[:name], message: contact_params[:message]).contact_email.deliver_now
       redirect_to root_path
     else
       flash.now[:error] = 'Could not send message'
