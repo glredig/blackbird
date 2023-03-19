@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/capistrano/rbenv.git
+  remote: https://github.com/capistrano/rbenv.git
   revision: 1fdb93a6dd4a4ab3fb786c995055cf6949daf7a4
   specs:
     capistrano-rbenv (2.2.0)
@@ -7,13 +7,13 @@ GIT
       sshkit (~> 1.3)
 
 GIT
-  remote: git://github.com/seuros/capistrano-puma.git
-  revision: f9801f6762d152c5d9da18ce726c7561cc4f9a8b
+  remote: https://github.com/seuros/capistrano-puma.git
+  revision: 2cc11846540489edda10d83e026c9bea04e6fab1
   specs:
-    capistrano3-puma (5.2.0)
+    capistrano3-puma (6.0.0.beta.1)
       capistrano (~> 3.7)
       capistrano-bundler
-      puma (>= 4.0, < 6.0)
+      puma (>= 5.1, < 7.0)
 
 GEM
   remote: https://rubygems.org/
@@ -509,6 +509,7 @@ DEPENDENCIES
   activemodel
   activesupport
   bcrypt (~> 3.1.7)
+  bundler (~> 2.4, >= 2.4.8)
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -532,7 +533,7 @@ DEPENDENCIES
   pg
   pry-byebug
   puma
-  rails (>= 5.2.4)
+  rails (>= 6)
   rails-html-sanitizer
   rails_12factor
   railties
@@ -550,4 +551,4 @@ RUBY VERSION
    ruby 3.1.0p0
 
 BUNDLED WITH
-   1.17.2
+   2.4.8
