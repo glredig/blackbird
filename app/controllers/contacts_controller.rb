@@ -19,8 +19,12 @@ class ContactsController < ApplicationController
     @contact = Contact.create(contact_params)
     if @contact.save
       flash[:notice] = "Thank you for contacting the band!"
-      ContactMailer.with(email: contact_params[:email], name: contact_params[:name], message: contact_params[:message]).contact_email.deliver_now
-      redirect_to root_path
+      begin
+        ContactMailer.with(email: contact_params[:email], name: contact_params[:name], message: contact_params[:message]).contact_email.deliver_now
+        redirect_to root_path
+      rescue
+        redirect_to root_path
+      end
     else
       flash.now[:error] = 'Could not send message'
       render :new

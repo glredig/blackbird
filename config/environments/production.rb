@@ -61,10 +61,13 @@ Rails.application.configure do
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
 
-  config.action_mailer.delivery_method = :cloudmailin
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'info@blackbirdband.com'}
 
   # Default url for mail
-  config.action_mailer.default_url_options = { host: 'cloudmailin.com' }
+  # config.action_mailer.default_url_options = { host: 'cloudmailin.com' }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
