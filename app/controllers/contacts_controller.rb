@@ -22,7 +22,8 @@ class ContactsController < ApplicationController
       begin
         ContactMailer.with(email: contact_params[:email], name: contact_params[:name], message: contact_params[:message]).contact_email.deliver_now!
         redirect_to root_path
-      rescue
+      rescue => e
+        Rails.logger.error e.message
         redirect_to root_path
       end
     else
